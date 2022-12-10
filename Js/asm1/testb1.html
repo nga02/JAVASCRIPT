@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+    <style>
+        #tittle {
+            height: 80px;
+        }
+
+        #tittle h1 {
+            text-align: center;
+            color: red;
+        }
+
+        #tittle .khung {
+            width: 700px;
+            margin-top: -17px;
+            border: 0.5px solid red;
+        }
+
+        p {
+            color: white;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #title {
+            text-align: center;
+            background-color: orangered;
+            width: 90px;
+            height: 30px;
+            top: 91%;
+            left: 45%;
+            text-transform: uppercase;
+            position: absolute;
+        }
+
+
+
+        .slider {
+            width: 700px;
+            height: 500px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider #prev{
+            width: 80px;
+            height: 80px;
+            /*chiều cao*/
+            border: 1px solid #ccc;
+            /*viền*/
+            border-radius: 49%;
+            text-align: center;
+            /*căn chỉnh chữ*/
+            font-size: 30px;
+            /*cỡ chữ*/
+            line-height: 80px;
+            /*chieu cao cua dong*/
+            text-align: center;
+            background-color: white;
+        }
+        .slider #next {
+            width: 80px;
+            height: 80px;
+            /*chiều cao*/
+            border: 1px solid #ccc;
+            /*viền*/
+            border-radius: 49%;
+            text-align: center;
+            /*căn chỉnh chữ*/
+            font-size: 30px;
+            /*cỡ chữ*/
+            line-height: 80px;
+            /*chieu cao cua dong*/
+            text-align: center;
+            background-color: white;
+        }
+
+        .slider #prev{
+            position: absolute;
+            /*xếp vị trí*/
+            left: 10px;
+            /*cách trái phải*/
+            top: 50%;
+            /*căn khoảng lề trên*/
+        }
+        .slider #next {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+        }
+
+
+        .slider #prev:hover,
+        .slider #next:hover {
+            background-color: violet;
+        }
+
+        .item {
+            display: none;
+        }
+
+        .item.active {
+            display: block;
+        }
+
+        .item img {
+            width: 700px;
+            height: 500px;
+            animation: zoom 1s ease;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="tittle">
+        <h1>Bộ sưu tập ảnh</h1>
+        <center>
+            <div class="khung"></div>
+        </center>
+    </div>
+
+    <div class="slider">
+        <button id="prev">prev<button>
+        <button id="next">next</button>
+                <div class="slide-show">
+                    <div class="item active">
+                        <img src="image/hai.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="image/một.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="image/hinh-anh-dong-que.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="image/hinh-anh-lang-que-2.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="image/ben-que-1.jpg" alt="">
+                    </div>
+                </div>
+
+                <p id="title">Ảnh
+                    <span id="number">1</span> /
+                    <span id="demo">5</span>
+                </p>
+    </div>
+    
+    <script>
+        var slideItem = document.querySelector('.slide-show').children
+        var slideLength = slideItem.length
+        var nextBtn = document.querySelector('#next')
+        var prevBtn = document.querySelector('#prev')
+        var number = document.querySelector('#number')
+        var index = 0
+
+        nextBtn.onclick = function () {
+            handleChangeImage('next')
+        }
+        prevBtn.onclick = function () {
+            handleChangeImage('prev')
+        }
+
+        function handleChangeImage(direction) {
+            if (direction == 'next') {
+                index++
+                if (index == slideLength) {
+                    index = 0
+                }
+                number.innerHTML = index + 1
+            } else {
+                index--
+                if (index < 0) {
+                    index = slideLength - 1
+                }
+                number.innerHTML = index + 1
+            }
+            for (var i = 0; i < slideLength; i++) {
+                slideItem[i].classList.remove('active')
+            }
+            slideItem[index].classList.add('active')
+        } 
+    </script>
+
+</body>
+
+</html>

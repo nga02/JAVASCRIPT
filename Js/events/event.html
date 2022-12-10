@@ -1,0 +1,45 @@
+<!-- <input type="text" onkeyup="console.log(event.key)">
+  style: hình vuông -->
+<!-- <div onmouseover="console.log(++count)" style="width: 60px; height: 60px; background: violet;"></div>
+
+
+    //  onclick: Nhấp chuột vào hthi trong tất cả các thẻ hthi ra màn hình h...
+    // ondbclick: Nhấn đúp trái 2 làn liên tiếp chuột p/ buttun (giống onclick)
+    /*onload: Thực thi lệnh ngay lập tức khi một trang đc tải(xra khi một dữ kiện một tải,
+     đc lấy hết về trình duyệt) body/ img/link/ */ 
+    // onkeyup: khi gõ, nhả 1 phím/ thẻ text orio/ tilte = paswork, seach, igmail, number
+    // onkeydown: thiếu 1 gtri so vs keyup
+    // onkeypress: != keydown nhận cả phím có gtri or ko gtri
+    // onmouseout: 
+    // oninput: bật sự kiện say khi gtri thay  (gtri)
+    // onchange: áp dụng (lựa chọn)
+
+
+     <script>
+      let count = 0;
+ </script> --> -->
+     
+    // VD: bấm nút onclick -> hiển thị 
+
+    <!-- <p>Hãy nhấn nút hiểm thị ngày!</p>
+    <button onclick="ngayhomnay()">Hiển thị</button>
+    <script>     
+         function ngayhomnay(){
+             document.getElementById("chay").innerHTML = Date();              
+         }
+    </script>
+    <p id="chay"></p> -->
+
+
+
+    <input type="text" onkeyup="console.log(event.keyCode)">
+    <div id="taga" onmouseover="changeBg()" onmouseout="changeBg()" style="width: 60px; height: 60px;"></div>
+    <script>
+     let bgcolor = "green";
+     let tagaTag = document.querySelector('#taga');
+     function changeBg(){
+         bgcolor = bgcolor == "red" ? "green" : "red"
+         tagaTag.style.background = bgcolor
+     } 
+     </script>
+ 

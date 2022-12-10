@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="slide">
+        <h2>Abum ảnh</h2>
+        <div class="show">
+            <img src="image/ben-que-1.jpg" alt="">
+            <div class="number">1/3</div>
+        </div>
+        <div class="show"> 
+            <img src="image/một.jpg" alt="">
+            <div class="number">2/3</div>
+        </div>
+        <div class="show">
+            <img src="image/as3.png" alt="">
+            <div class="number">3/3</div>
+        </div>
+    </div>
+
+    <button onclick="plusSlides(-1)" class="prev">Stop</button>
+    <button onclick="plusSlides(1)" class="next">Start</button>
+</body>
+
+</html>
+
+<script>
+    let slide = 1;
+    showSlides(slide);
+
+    function plusSlides(n){
+        showSlides(slide += n);
+    }
+    function showSlides(n){
+        let i;
+        let slides = document.getElementsByClassName("show");
+        if (n > slides.length){ slide = 1}
+        if (n < 1){slide = slides.length}
+        for (i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
+        }
+        slides[slide - 1].style.display = "block";
+    }
+</script>

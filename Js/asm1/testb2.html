@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <link rel="stylesheet" href="ass.css">
+    <style>
+        .error {
+            color: red;
+            margin: 0 20px;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contaner">
+        <div class="form">
+            <h2>Đăng kí thành viên</h2>
+            <form id="frm1">
+                <div class="input_text">
+                    <label>Mã sinh viên</label>
+                    <input type="text" class="txt" id="msv" name="msv" placeholder="Mã sinh viên có 7 ký tự">
+                    <span class="error" id="msv_error"></span>
+                </div>
+                <div class="input_text">
+                    <label>Họ & tên</label>
+                    <input type="text" class="txt" id="hoten" name="hoten" placeholder="Nhập họ tên của bạn">
+                    <span class="error" id="hoten_error"></span>
+                </div>
+                <div class="input_text">
+                    <label>Email</label>
+                    <input type="email" class="txt" id="email" name="email" placeholder="Nhập email của bạn">
+                    <span class="error" id="email_error"></span>
+                </div>
+                <div>
+                    <label>Giới tính</label>
+                    <span id="chonphai">
+                        <input type="radio" name="gender" value="Nam"><label>Nam</label>
+                        <input type="radio" name="gender" value="Nữ"><label>Nữ</label><br>
+                    </span>
+                    <span class="error" id="gender_error"></span>
+                </div>
+
+                <div class="input_text">
+                    <label>Sở thích</label>
+                    <span id="chonsothich">
+                        <input type="checkbox" name="like" id="docsach">
+                        <label>Đọc sách</label>
+
+                        <input type="checkbox" name="like" id="dulich">
+                        <label>Du lịch</label>
+
+                        <input type="checkbox" name="like" id="amnhac">
+                        <label>Âm nhạc</label>
+
+                        <input type="checkbox" name="like" id="amthuc">
+                        <label>Ẩm thực</label>
+
+                        <input type="checkbox" name="like" id="khac">
+                        <label>Khác</label>
+                    </span>
+                    <br><span class="error" id="like_error"></span>
+                </div>
+
+                <div class="input_text">
+                    <label>Quốc tịch</label>
+                    <select name="quoctich" id="quoctich" class="txt">
+                        <option value="Chọn quốc tịch">Chọn quốc tịch</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailan">Thailan</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Korea">Korea</option>
+                        <option value="USA">USA</option>
+                    </select>
+                    <span class="error" id="quoctich_error"></span>
+                </div>
+
+                <div class="input_text">
+                    <label>Ghi chú</label>
+                    <textarea class="txt" id="ghichu" name="ghichu" rows="6" placeholder="Ghi chú"></textarea>
+                    <span class="error" id="ghichu_error"></span>
+                </div>
+                <!-- </p> -->
+                <div class="input_text">
+                    <label></label>
+                    <button type="button" onclick="kiemtra()" id="dangki">Đăng ký</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //js trang đăng kí
+    function kiemtra() {
+        // kt mã Sv
+        let msv_error = ""
+        let msv = document.querySelector(`[name="msv"]`).value;
+        if (msv.trim().length == 0) {
+            msv_error = "Mời nhập mã sinh viên !"
+        }
+        document.getElementById("msv_error").innerText = msv_error;
+
+        // Kt họ tên
+        // let hoten_error = "Mời nhập họ trên của bạn !"
+        // document.getElementById("hoten_error").innerText = hoten_error;
+        let hoten_error = ""
+        let hoten = document.querySelector(`[name="hoten"]`).value;
+        if (hoten.trim().length == 0) {
+            hoten_error = "Tên không được bỏ trống";
+        }
+        document.getElementById("hoten_error").innerText = hoten_error;
+
+
+        //  Kt email
+        let email_error = ""
+        let email = document.querySelector(`[name="email"]`).value;
+        if (email.trim().length == 0){
+            email_error = "Mời bạn nhập email";
+        }
+        document.getElementById("email_error").innerText = email_error;
+
+        // Kt giới tính
+        let gender_error = ""
+        let gender = document.querySelector(`[name="gender"]`).value;
+        if(gender.checked == false){
+            gender_error = "Mời chọn giới tính !"
+        }
+        document.getElementById("gender_error").innerText = gender_error;
+
+        // Kt sở thích
+        let like_error = ""
+        let like = document.querySelector(`[name="like"]`).value;
+        if(like.checked == false){
+            like_error = "Mời bạn chọn ít nhất một sở thích !" 
+        }
+        document.getElementById("like_error").innerText = like_error;
+
+        // KT quốc tịch
+        let quoctich_error = ""
+        let quoctich = document.querySelector(`[name="quoctich"]`).value;
+        if(quoctich.trim().length == 0){
+            quoctich_error = "Mời bạn chọn quốc tịch !"
+        }
+        document.getElementById("quoctich_error").innerText = quoctich_error;
+
+        // Kt ghi chú 
+        let ghichu_error = ""
+        let ghichu = document.querySelector(`[name='"ghichu"]`).value;
+        if(ghichu.trim().length == 0){
+            ghichu_error = "Mời bạn nhập phần ghi chú !"
+        }
+        document.getElementById("ghichu_error").innerText = ghichu_error;
+
+
+
+
+        // Kiểm tra xem có dữ liệu hay không, tạo biến rỗng, nếu ko nhập thì thồng báo
+        let msg = "";
+        if (email.length == 0) {
+            msg = "Hãy nhập email";
+        }
+
+        if (msg.length > 0) {
+            emailErr.innerText = msg;
+        } else {
+            emailErr.innerText = "";
+        }
+
+
+        //  Ktra có thẻ @ ở trong email hay không và chỉ có 1 @ trong giá trị
+        // thẻ @ không đc phép đứng đầu hoặc đứng cuối chuỗi
+
+        if (msg.length == 0 && (email.includes('@') == false
+            // includes() => true/ false
+            || email.startsWith('@') == true
+            || email.endsWith('@')
+            // @ ở đầu hoặc cuối cũng trả về true/flase
+            || checkDisplayNumber(email, '@', 1) == false)) {
+            msg = "Không đúng định dạng email !"
+        }
+
+
+        // // Kiểm tra số kí tự 
+        function checkDisplayNumber(str, char, expectedNumber) {
+            let count = 0;
+            for (const character of str) {
+                if (character == char)
+                    count++;
+            }
+            return count == expectedNumber;
+        }
+        if (msg.length > 0) {
+            emailErr.innerText = msg;
+        } else {
+            emailErr.innerText = " ";
+        }
+    }
+
+</script>

@@ -1,0 +1,44 @@
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis, maiores quo possimus aliquid, ipsa iste
+    nesciunt inventore expedita voluptate debitis
+    laboriosam dolorum assumenda ducimus nam architecto quasi quia cupiditate.</p>
+<p id="txt_blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis, maiores quo possimus
+    aliquid, ipsa iste
+    nesciunt inventore expedita voluptate debitis
+    laboriosam dolorum assumenda ducimus nam architecto quasi quia cupiditate.</p>
+<p class="font-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis, maiores quo possimus aliquid, ipsa iste
+    nesciunt inventore expedita voluptate debitis
+    laboriosam dolorum assumenda ducimus nam architecto quasi quia cupiditate.</p>
+
+    <h3>123</h3>
+    <h3>123</h3>
+    <h3>123</h3>
+<script>
+    // Document: Biến có sẵn
+    // Giúp tương tác vs thẻ HTML trên web
+    // 1. Xác định 1 thẻ hoặc 1 tập hợp các thẻ html trên web
+    //   - Xác đinh một thẻ:
+    // .querySelector()
+    document.querySelector('p').style.color = 'red'
+    // .getElementById()
+    document.getElementById('txt_blue').style.color = 'blue';
+
+    //     - Xác định một tập hợp thẻ(mảng):
+    // .querySelectorAll() => Trả về mảng
+    let listFont18 = document.querySelectorAll('.font-18');
+    for(const el of listFont18){
+        el.style.fontSize = '28px'
+    }
+    console.log(listFont18);
+
+    // .getElementsByTagName()
+    let listH3Tag = document.getElementsByTagName('h3');
+    console.log(listH3Tag);
+    for (const tag of listH3Tag) {
+        tag.style.color='green';
+    }
+
+    // .getElementByClassName()
+    // 2. Tương tác vs thẻ đã đc xác định (2 cách)
+    /*  - Các thuộc tính
+        - Phương thức*/
+</script>

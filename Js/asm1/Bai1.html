@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASS1</title>
+
+    <style>
+        .nd {
+            height: 80px;
+        }
+
+        .nd h1 {
+            text-align: center;
+            color: green;
+        }
+
+        .nd .khung {
+            width: 700px;
+            margin-top: -20px;
+            border: 00.5px solid green;
+        }
+
+        p{
+            color: black;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .danhso {
+            text-align: center;
+            background-color: rebeccapurple;
+            width: 90px;
+            height: 30px;
+            top: 91%;
+            left: 45%;
+            text-transform: uppercase;
+            position: absolute;
+        }
+
+        .danhso>span{
+            color: #000;
+            size: 20px;
+        }
+
+        .Anh {
+            width: 750px;
+            height: 500px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .prev {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            border-radius: 49%;
+            text-align: center;
+            font-size: 15px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .next {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            border-radius: 49%;
+            text-align: center;
+            font-size: 15px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .Anh .prev {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+        }
+
+        .Anh .next {
+            position: absolute;
+            left: 630px;
+            top: 50%;
+        }
+
+        .Anh .next:hover,
+        .Anh .prev:hover {
+            background-color: greenyellow;
+        }
+
+        .item {
+            display: none;
+        }
+
+        .item.active {
+            display: block;
+        }
+
+        .item img {
+            width: 700px;
+            height: 500px;
+            animation: zoom 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nd">
+        <h1 align="center">Bộ sưu tập ảnh</h1>
+        <center>
+            <div class="khung"></div>
+        </center>
+    </div>
+    <div class="Anh">
+        <div class=" prev">prev</div>
+        <div class=" next">next</div>
+        <div class="slide-show">
+            <div class="item active">
+                <img src="image/hai.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="image/một.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="image/ben-que-1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="image/hinh-anh-dong-que.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="image/hinh-anh-lang-que-2.jpg" alt="">
+            </div>
+        </div>
+
+        <p class="danhso">Ảnh
+            <span class="number">1</span>/
+            <span class="tong">5</span>
+        </p>
+    </div>
+</body>
+
+<script>
+    var slideItem = document.querySelector('.slide-show').children;
+    var slideLength = slideItem.length;
+    var nextBtn = document.querySelector('.next');
+    var prevBtn = document.querySelector('.prev');
+    var number = document.querySelector('.number');
+    var num = 0;
+
+    nextBtn.onclick = function () {
+        handleChangeImage('next');
+    }
+    prevBtn.onclick = function () {
+        handleChangeImage('prev');
+    }
+
+    function handleChangeImage(nnnnn) {
+        if (nnnnn == 'next') {
+            num++;
+            if (num == slideLength) {
+                num = 0;
+            }
+            number.innerHTML = num + 1
+        } else {
+            num--;
+            if (num < 0) {
+                num = slideLength - 1;
+            }
+            number.innerHTML = num + 1;
+        }
+        for (var i = 0; i < slideLength; i++) {
+            slideItem[i].classList.remove('active');
+        }
+        slideItem[num].classList.add('active');
+    }
+
+</script>
+
+
+</html>

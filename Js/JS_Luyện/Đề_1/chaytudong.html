@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide-show Lê Cúc</title>
+    <style>
+        .body{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">slide-show chạy tự động</h1>
+    <!-- <center><div>Khung</div></center> -->
+    <div class="slide_show">
+        <center><img src="image/a1.jpg" id="Abum_show"></center>
+    </div>
+</body>
+</html>
+
+<script>
+    let i = 0;
+    changImage = function(){
+        let img = ["image/a1.jpg", "image/a2.jpg", "image/a3.jpg", "image/a4.jpg", "image/a5.jpg"];
+        document.getElementById('Abum_show').src = img[i];
+        i ++;
+        if(i==5){
+            i=0;
+        }
+    }
+    setInterval(changImage, 1500);
+</script>

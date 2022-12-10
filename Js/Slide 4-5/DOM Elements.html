@@ -1,0 +1,46 @@
+<table border="1">
+    <thead>
+        <th>
+            <input type="checkbox" name="" id="checkbox_cha">
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="checkbox" name="" class="checkbox_con">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" class="checkbox_con">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" class="checkbox_con">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<script>
+    let theCha = document.querySelector('#checkbox_cha');
+    let listTheCon = document.querySelectorAll('.checkbox_con');
+
+    theCha.onclick = function () {
+        for (const item of listTheCon) {
+            item.checked = this.checked
+        }
+    }
+
+    for (const item of listTheCon) {
+        item.onclick = function () {
+            // console.log(2);
+            let listConChecked = document.querySelectorAll('.checkbox_con: checked');
+            theCha.checked = listTheCon.length == listConChecked.length;
+        }
+    }
+    // : trang thái
+// document.querySelector()
+</script>

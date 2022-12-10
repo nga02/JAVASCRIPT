@@ -1,0 +1,44 @@
+Số thứ nhất: <input type="text" id="canh_1">
+<br>
+Số thứ 2: <input type="text" id="canh_2">
+<br>
+Số thứ 3: <input type="text" id="canh_3">
+<br>
+<button onclick="tamGiac()">Run</button>
+<h3>Kết quả</h3>
+<div id="result"></div>
+<script>
+  function tamGiac() {
+    // lấy giá trị của 3 cạnh
+    var a = document.querySelector('#canh_1');
+    var b = document.querySelector('#canh_2');
+    var c = document.querySelector('#canh_3');
+    var canh_1 = parseInt(a.value);
+    var canh_2 = parseInt(b.value);
+    var canh_3 = parseInt(c.value);
+    var content = " ";
+
+
+    // 1. alert ra cạnh dài nhất
+    alert("Cạnh dài nhất là: " + Math.max(Number(canh_1), Number(canh_2), Number(canh_3)));
+
+
+    // diện tích của tam giác này
+
+
+  }
+  // 2. alert ra xem độ dài 3 cạnh có thể tạo thành tam giác hay không
+  if ((Number(canh_1) + Number(canh_2) > Number(canh_3) && Number(canh_1) + Number(canh_3) > Number(canh_2) &&
+    Number(canh_2) + Number(canh_3) > Number(canh_1))) {
+    content = 'Tam giác'
+    var s = (Number(canh_1) + Number(canh_2) + Number(canh_3)) / 2;
+    var area = Math.sqrt(s * ((s - Number(canh_1)) * (s - Number(canh_2)) * (s - Number(canh_3))));
+    alert("Diện tích:" + area);
+  }else{
+    content = " không phải là tam giác"
+  }
+  document.querySelector('#result').innerHTML = content
+
+    // 3. nếu độ dài tạo thành đc tam giác thì hiển thị ở #result
+
+</script>

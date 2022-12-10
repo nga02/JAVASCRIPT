@@ -1,0 +1,79 @@
+<div>
+    <label for="">Mã sinh viên</label><br>
+    <input type="text" id="msv"><br>
+    <span style="color: violet;" id="msv_err"></span>
+</div>
+
+<div>
+    <label for="">Họ và tên</label><br>
+    <input type="text" id="hoten"><br>
+    <span style="color: violet;" id="hoten_err"></span>
+</div>
+
+<div>
+    <button type="button" onclick="Validate()">Đăng ký</button>
+</div>
+
+
+
+<script>
+    function Validate(){    
+        // validate cho msv
+        let msv = document.querySelector('#msv').value;
+        let err = checkmsv(msv);
+        document.querySelector('#msv_err').innerText = err;
+
+
+        // họ tên có .trim sau value
+        let hoten = document.querySelector('#hoten').value.trim();
+        let hoten_err = checkhoten(hoten);
+        document.querySelector('#hoten_err').innerText = hoten_err;
+
+        
+    function checkmsv(msvValue){
+        // - ko để trống
+        if(msvValue.lenght == 0){
+            return "Hãy nhập mã sinh viên"
+        }
+
+        // mã sv có 7 kí tự
+        if(msvValue.lenght != 7){
+            return "Mã sinh viên có 7 kía tự"
+        }
+
+        // Phải bắt đầu bằng chữ p
+        if(msvValue[0].toLowerCase() != "p"){
+            // toLowerCase: chữ hoa chữ thường
+            return "Mã sinh viên không đúng định dạng"
+        }
+
+        // Kí tự thứ 2 phải là một các kí tự 'h', 'c', 't', 's',
+        if(msvValue){
+
+        }
+        // 5 kí tự cuối phải là số
+    }
+
+    }
+
+    
+     // Làm họ tên... tương tự
+    function checkhoten (hotenValue){
+        if(hotenValue.lenght == 0){
+            return "Hãy nhập họ và tên";
+        }
+        // chuyển chuỗi thành mảng dự vào dấu cách " "
+        // Ở mảng vừa có thể laoij bỏ các phần tử là dấu ""
+        // Đếm số lượng phần tử còn lại
+        // Nếu số lượng phần tử <= 1 thì báo lỗi
+        let arr = hotenValue.split(" ");
+        arr2 = arr.filter (function(item){
+            return item != "";
+        })
+        if(arr2.lenght <= 1){
+            return "Họ tên ít nhất hai từ";
+        }
+        return "";
+    }
+   
+</script>

@@ -1,0 +1,61 @@
+kl<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ôn tập 4</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <!-- 1.  Hover lên hình thì sẽ đổi hình khác, đưa con trỏ ra khỏi hình, chuyển về hình cũ
+       2.  Click chuột vào button Hide, Hình ẩn
+       3. Click chuột vào button Show, Hình hiện ra -->
+
+        <div class="slide">
+            <img src="img/a1.jpg" id="img" onmouseover="overImg()" onmouseout="outImg()">
+        </div>
+
+        <div class="button">
+            <button onclick="hideImg()">Hide</button>
+            <button onclick="showImg()">Show</button>
+        </div>
+
+        <script>
+            let img = document.getElementById('img');
+
+            function overImg() {
+                img.src = 'img/a1.jpg'
+            }
+
+            function outImg() {
+                img.src = 'img/a3.jpg'
+            }
+
+            function hideImg() {
+                img.style.display = 'none'
+            }
+
+            function showImg() {
+                img.style.display = 'block'
+            }
+
+
+        </script>
+
+    </body>
+
+    </html>

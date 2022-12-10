@@ -1,0 +1,93 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* định  nghĩa form bài 2 */
+h2 {
+    text-align: center;
+    color: palevioletred;
+    font-size: 30px;
+}
+
+.form {
+    height: 800px;
+    margin-top: 10px;
+}
+
+#frm1 {
+    width: 600px;
+    margin: auto;
+    border: 2px solid darkslategrey;
+    padding: 10px 40px;
+    background: whitesmoke;
+}
+
+#frm1 p {
+    display: grid;
+    grid-template-columns: 120px auto;
+}
+
+#frm1 label {
+    color: darkslategray;
+}
+
+#frm1 .txt {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid lightcoral;
+    vertical-align: middle;
+}
+
+#frm1 button {
+    width: 120px;
+    height: 40px;
+}
+
+#frm1 textarea.txt {
+    vertical-align: top;
+}
+
+#frm1 #baoloi {
+    background: wheat;
+    color: red;
+    text-align: center;
+}
+
+#frm1 .loi {
+    padding: 6px;
+    border: 1px solid red;
+    background: yellow;
+}
+
+/* CSS trang bán hàng */
+table,
+th,
+td,
+tr {
+    border: 1px solid blue;
+    border-collapse: collapse;
+    padding: 4px;
+    margin: 10px;
+}
+
+.table {
+    text-align: center;
+}
+
+thead {
+    background-color: darkgoldenrod;
+    color: black;
+}
+
+
+.banhang {
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px auto;
+    text-align: center;
+    position: relative;
+}

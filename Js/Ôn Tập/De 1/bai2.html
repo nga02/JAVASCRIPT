@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Đăng ký khóa học online</h1>
+    <div>
+        <label for="">Họ tên</label>
+        <input type="text" id="name">
+        <span class="err" id="name_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">email</label>
+        <input type="text" id="email">
+        <span class="err" id="email_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số điện thoại</label>
+        <input type="text" id="dt">
+        <span class="err" id="dt_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Khóa học</label>
+        <select  id="khoahoc" onchange="thaydoi()">
+            <option value="0" selected disabled>Khóa học</option>
+            <option value="1">Khóa học js</option>
+            <option value="2">Khóa học C#</option>
+            <option value="3">Khóa học SQL</option>
+        </select>
+        <span class="err" id="khoahoc_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Học phí</label>
+        <input id="hocphi" disabled>
+        <span class="err" id="hocphi_err"></span>
+    </div>
+    <div>
+        <label for="">Hình thức học </label>
+        <input type="radio" name="hinhthuc" id="taitruong" value="taitruong" >Học tại trường
+        <input type="radio" name="hinhthuc" id="online" value="online">Học online
+        <span class="err" id="hinhthuc_err" style="color: red;"></span>
+    </div>
+    <div>
+        <button onclick="validate()">Đăng ký</button>
+    </div>
+
+
+    <script>
+        function validate(){
+            // check họ tên
+            let hoten = document.getElementById('name').value;
+            let name_err = document.getElementById('name_err');
+            let regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+            if(hoten == "" || hoten == null){
+                name_err.innerHTML="Mời nhập họ tên !!!"
+            }else if(!regexName.test(hoten)){
+                name_err.innerHTML = "Tên không đúng định dạng !!!"
+            }else{
+                name_err.innerHTML=""
+            }
+
+
+            // check email, email đúng định dạng
+            let email = document.getElementById('email').value;
+            let email_err = document.getElementById('email_err');
+            let regexEmail = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+            if(email == "" || email == null){
+                email_err.innerHTML = "Mời nhập email !!!"
+            }else if (!regexEmail.test(email)){
+                email_err.innerHTML = "Email của bạn không đúng định dạng!"
+            }else{
+                email_err.innerHTML = "" 
+            }
+
+
+            // check số điện thoại
+            let dt = document.getElementById('dt').value;
+            let dt_err = document.getElementById('dt_err');
+            let regexdt = /((09|03|05|07|08)+([0-9]{8})\b)/g;
+            if(dt == "" || dt==null){
+                dt_err.innerHTML = "Bạn chưa nhập số điện thoại!!!"
+            }else if(!regexdt.test(dt)){
+                dt_err.innerHTML = "Điện thoại sai định dạng !!!"
+            }else{
+                dt_err.innerHTML = ""
+            }
+
+
+
+            // Check khóa học
+            let khoahoc = document.getElementById('khoahoc').value;
+            let khoahoc_err = document.getElementById('khoahoc_err');
+            if(khoahoc == 0){
+                khoahoc_err.innerHTML = "Chọn khóa học đi !!!"
+            }else{
+                khoahoc_err.innerHTML =  ""
+            }
+
+
+
+            // check hình thức học
+            let taitruong = document.getElementById('taitruong');
+            let online = document.getElementById('online');
+            if(taitruong.checked == false & online.checked == false){
+                hinhthuc_err.innerHTML = "Bạn chưa chọn hình thức học !!!";
+            }else{
+                hinhthuc_err.innerHTML = "";
+            }
+
+
+        }
+
+        function thaydoi(){
+            let khoahoc = document.getElementById('khoahoc');
+            let hocphi = document.getElementById('hocphi');
+            if(khoahoc.value==1){
+                hocphi.value = '5000';
+            }else if(khoahoc.value==2){
+                hocphi.value = '2000';
+            }else if(khoahoc.value==3){
+                hocphi.value ='1000'
+            }
+        }
+    </script>
+</body>
+</html>

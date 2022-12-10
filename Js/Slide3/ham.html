@@ -1,0 +1,20 @@
+<script>
+    function taomang(sophantu, somax){
+        let arr = []
+        for(let i=0; i<sophantu; i++){
+    let randomNumber = Math.floor(Math.random()*(somax+1));
+    arr.push(randomNumber);
+}
+return arr
+    }
+
+    // m1. 10 ptu các ptu nằm trong khoảng 0 -> 6
+    let m1 = taomang(10, 6);
+
+    // m2. 100 ptu các ptu nằm trong khoảng 0 -> 200
+    let m2 = taomang(100, 200);
+    
+    // m3. 67 ptu các ptu nằm trong khoảng 0 -> 20
+    let m3 = taomang(67, 20);
+    console.log(m3)
+</script>

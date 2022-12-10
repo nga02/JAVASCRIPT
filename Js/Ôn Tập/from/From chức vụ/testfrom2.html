@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        color: red;
+    }
+
+    td,
+    th {
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    form {
+        margin-left: 50px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Form</h1>
+        </center>
+        <form action="" onsubmit="check()">
+            <table>
+                <tr>
+                    <th>Họ tên:</th>
+                    <td><input type="text" id="name"></td>
+                    <td><span class="error" id="errorName"></span></td>
+                </tr>
+                <tr>
+                    <th>Ngày sinh:</th>
+                    <td><input type="date" id="date"></td>
+                    <td><span class="error" id="errorDate"></span></td>
+                </tr>
+                <tr>
+                    <th>Giới tính</th>
+                    <td id="gioitinh">
+                        <input type="radio" name="gioitinh" id="nam" value="Nam">Nam
+                        <input type="radio" name="gioitinh" id="nu" value="Nữ">Nữ
+                    </td>
+                    <td><span class="error" id="errorGioiTinh"></span></td>
+                </tr>
+                <tr>
+                    <th>Chức vụ:</th>
+                    <td>
+                        <select name="" id="chucvu" onchange="thaydoi()">
+                            <option value="0">Chức vụ</option>
+                            <option value="1">Giám đốc</option>
+                            <option value="2">Trưởng phòng</option>
+                            <option value="3">Nhân viên</option>
+                        </select>
+                    </td>
+                    <td><span class="error" id="errorChucVu"></span></td>
+                </tr>
+                <tr>
+                    <th>Lương:</th>
+                    <td><input type="text" id="luong" disabled></td>
+                </tr>
+                <tr>
+                    <th>
+                        <button>Chấp nhận</button>
+                        <button type="reset">Nhập lại</button>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function check() {
+            //check họ tên
+            var names = document.getElementById('name').value
+            var errorName = document.getElementById('errorName')
+            var regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/
+
+            if (names == '' || names == null) {
+                errorName.innerHTML = "Bạn chưa nhập họ tên"
+            } else if (!regexName.test(names)) {
+                errorName.innerHTML = "họ tên không hợp lệ"
+            } else {
+                errorName.innerHTML = ''
+            }
+            //check giới tính
+            var gender = document.getElementById('gioitinh').value;
+            var errorGioiTinh = document.getElementById('errorGioiTinh')
+
+            var nam = document.getElementById('nam')
+            var nu = document.getElementById('nu')
+
+            if (nam.checked == false && nu.checked == false) {
+                errorGioiTinh.innerHTML = "Bạn chưa chọn giới tính"
+            } else {
+                errorGioiTinh.innerHTML = ''
+            }
+
+            //check chức vụ
+            var chucvu = document.getElementById('chucvu').value
+            var errorChucVu = document.getElementById('errorChucVu')
+            if (chucvu == 0) {
+                errorChucVu.innerHTML = 'Hãy chọn chức vụ'
+            } else {
+                errorChucVu.innerHTML = ''
+            }
+
+            //check ngày sinh
+            event.preventDefault();
+
+        }
+        function thaydoi() {
+            let chucvu = document.getElementById('chucvu');
+            let luong = document.getElementById('luong');
+            if (chucvu.value == 1) {
+                luong.value = '500000000'
+
+            }
+            else if (chucvu.value == 2) {
+                luong.value = '20000000'
+
+            }
+            else if (chucvu.value == 3) {
+                luong.value = '100000000'
+
+            }
+
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<input type="text" id="target">
+<br>
+<button onclick="run()">Chạy</button>
+<br>
+<div id="result"></div>
+<script>
+    function run(){
+        /* Xác định số lượng kí tự trong thẻ
+           Thẻ input là số
+           VD: 13aa, bbcc3z9
+           hiển thị có 4 kí tự là số */ 
+        //    var target = document.querySelector('#target');
+        //    var dem = 0;
+        var s = document.getElementById("target").value;
+        var arr = s.split(" ");
+        var b, words = 0;
+        var arrrn = [innerHeight];
+
+        for (i = 0; i <= 128; i++)
+            arrrn[i] = 0;
+
+        for (i = 0; i < arr.length; i++)
+
+            if (arr[i].trim() != " ")
+                words++;
+
+        var result = "Kí tự: " + s.length + "<br>" +
+            "Chữ: " + words + "<br>"
+        for (i = 0; i < s.length; i++) {
+            if (s.charCodeAt(i) >= 'a' && s.charCodeAt(i) <= 'z')
+
+                arrrn[s.charCodeAt(i) - 32]++;
+        }
+
+        for (i = 0; i < arrrn.length; i++) {
+
+        }
+        for (i = 0; i < arrrn.length; i++)
+
+        {
+            if (arrrn[i] > 0)
+                result += "Kí tự'" + String.fromCharCode(i) +
+                "': " + arrrn[i] + "<br>";
+
+        }
+        document.getElementById("result").innerHTML = result;
+           
+    }
+</script>

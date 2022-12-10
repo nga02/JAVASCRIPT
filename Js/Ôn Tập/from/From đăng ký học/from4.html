@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From đăng ký nhập học</title>
+</head>
+<body>
+    <div>
+        <h1>Đăng ký học</h1>
+        <div>
+            <label for="">Họ tên</label>
+            <input type="text" id="name">
+            <span class="err" id="name_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Tuổi</label>
+            <input type="number" min="1" id="age">
+            <span class="err" id="age_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Giới tính</label>
+            <input type="radio" name="gender" id="nam" value="nam">Nam
+            <input type="radio" name="gender" id="nu" value="nu">Nữ
+            <span class="err" id="gender_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Quê quán</label>
+            <select name="" id="quequan">
+                <option value="0" selected disabled>--Tỉnh--</option>
+                <option value="1">Thái Nguyên</option>
+                <option value="2">Tuyên Quang</option>
+                <option value="3">Hà Giang</option>
+            </select>
+            <span class="err" id="qq_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Địa chỉ email</label>
+            <input type="text" id="email">
+            <span class="err" id="email_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Điện thoại liên hệ</label>
+            <input type="text" id="phone">
+            <span class="err" id="phone_err" style="color: red;"></span>
+        </div>
+
+        <div>
+            <label for="">Nơi ở hiện tại</label><br>
+            <textarea name="" id="ghichu" cols="30" rows="10"></textarea>
+            <span class="err" id="baoloi" ></span>
+        </div>
+
+        <div>
+            <button type="button" onclick="validate()">Đồng ý</button>
+            <button type="reset">Bỏ qua</button>
+        </div>
+    </div>
+
+    <script>
+        function validate(){
+            
+            // kt tên
+            let name = document.getElementById('name').value;
+            let name_err = document.getElementById('name_err');
+            let regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+            if(name == "" || name == null){
+                name_err.innerHTML = "Nhập họ tên đi !!!";
+            }else if (!regexName.test(name)){
+                name_err.innerHTML = "Họ tên không đúng định dạng !!!"
+            }else{
+                name_err.innerHTML = "";
+            }
+
+          
+
+            // ktra tuổi
+            let tuoi = document.getElementById('age');
+            let age_err = document.getElementById('age_err');
+            if(tuoi.value == ""){
+                age_err.innerHTML="Nhập tuổi của bạn !!!"
+            }else{
+                age_err.innerHTML = ""
+            }
+
+
+            // check giới tính
+            let nam = document.getElementById('nu');
+            let nu = document.getElementById('nu');
+            if(nam.checked == false & nu.checked == false){
+                gender_err.innerHTML = "Bạn chưa chọn giới tính!!!"
+            }else{
+                gender_err.innerHTML = ""
+            }
+
+
+            // check quê quán
+            let quequan = document.getElementById('quequan').value;
+            let qq_err = document.getElementById('qq_err');
+            if(quequan == 0){
+                qq_err.innerHTML = "Mời bạn chọ quê quán !!!";
+            }else{
+                qq_err.innerHTML = "";
+            }
+
+
+
+            // check email
+            let email = document.getElementById('email').value;
+            let email_err = document.getElementById('email_err');
+            let regexEmail= /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+            if (email == '' || email == null) {
+                email_err.innerHTML = "Không được để trống email";
+            }
+            else if (!regexEmail.test(email)) {
+                email_err.innerHTML = "Định dạng email không hợp lệ !!!";
+            }
+            else {
+                email_err.innerHTML = "";
+            }
+
+
+
+            // Check điện thoại liên hệ
+            let phone = document.getElementById('phone').value;
+            let phone_err = document.getElementById('phone_err');
+            let regexphone =  /((09|03|05|07|08)+([0-9]{8})\b)/g;
+            if(phone == "" || phone == null){
+                phone_err.innerHTML = "Không được để trống điện thoại liên hệ !!!"
+            }else if(!regexphone.test(phone)){
+                phone_err.innerHTML = "Điện thoại không đúng định dạng !"
+            }else{
+                phone_err.innerHTML = "";
+            }
+            
+
+
+            // check nơi ở
+            // var add = document.getElementById('add').value;
+            // var errorAdd = document.getElementById('errorAdd');
+            // if (add == '' || add == null) {
+            //     errorAdd.innerHTML = "Không được để trống nơi ở !!!";
+            // }
+            // else {
+            //     errorAdd.innerHTML = '';
+            // }
+
+
+            let ghichu = document.getElementById('ghichu').value;
+            let ghichu_err = document.getElementById('baoloi');
+            if(ghichu == "" || ghichu == null){
+                ghichu_err.innerHTML = "Khai báo nơi ở hiện tại của bạn !!!"
+            }else{
+                ghichu_err.innerHTML = ""
+            }
+
+
+               
+        }
+    </script>
+</body>
+</html>

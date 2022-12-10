@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <label for="">Họ tên</label>
+            <input type="text" id="name">
+            <span class="error" id="name_error" style="color: red;"></span>
+        </div>
+    
+        <div>
+            <label for="">Ngày sinh</label>
+            <input type="date" id="date">
+            <span class="error" id="date_error" style="color: red;"></span>
+        </div>
+        
+        <div>
+            <label for="">Giới tính</label>
+            <input type="radio" name="gender" id="nam" value="nam">Nam
+            <input type="radio" name="gender" id="nu" value="nu">Nữ
+            <span class="error" id="gtinh_error" style="color: red;"></span>
+        </div>
+    
+        <div>
+            <label for="">Chức vự</label>
+            <select id="chucvu" onchange="thaydoi()">
+                <option value="0" selected disabled>Chọn chức vụ</option>
+                <option value="1">Giám đốc</option>
+                <option value="2">Trưởng phòng</option>
+                <option value="3">Nhân viên</option>
+            </select>
+            <span class="error" id="chucvu_error" style="color: red;"></span>
+        </div>
+    
+        <div>
+            <label for="">Lương</label>
+            <input type="text" id="luong">
+            <span class="error" id="luong_error" style="color: red;"></span>
+        </div>
+    
+        <div>
+            <button onclick="validate()">Chấp nhận</button>
+            <button type="reset">Nhập lại</button>
+        </div>
+
+    <script>
+        function validate(){
+            // Check họ tên
+            let ten = document.getElementById('name').value;
+            let name_error = document.getElementById('name_error')
+            let regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+            if(ten == '' || ten == null){
+                name_error.innerHTML = "Họ tên không được để trống !"
+            }else if(!regexName.test(ten)){
+                name_error.innerHTML = "Họ tên không hợp lệ !!!"
+            }else{
+                name_error.innerHTML=""
+            }
+
+
+            // check ngày sinh
+            let ngaysinh = document.getElementById('date')
+            let date_error = document.getElementById('date_error')
+            if(ngaysinh.value =''){
+                date_error.innerHTML = "Nhập ngày sinh đi !"
+            }else{
+                date_error.innerHTML = ""
+            }
+
+            //Check giới tính 
+            let nam = document.getElementById('nam')
+            let nu = document.getElementById('nu')
+            if(nam.checked == false & nu.checked == false){
+                gtinh_error.innerHTML = "Mời chọn giới tính!"
+            }else{
+                gtinh_error.innerHTML=""
+            }
+            
+
+
+            // kiểm tra chức vụ
+            let chucvu = document.getElementById('chucvu').value
+            let chucvu_error = document.getElementById('chucvu_error')
+            if(chucvu == 0){
+                chucvu_error.innerHTML = "Mời nhập chọn chức vụ !"
+            }else{
+                chucvu_error.innerHTML = '';
+            }
+
+            // Kiểm tra lương
+
+            event.preventDefault();
+        }
+
+        function thaydoi() {
+            let chucvu = document.getElementById('chucvu');
+            let luong = document.getElementById('luong');
+            if (chucvu.value == 1) {
+                luong.value = '500000000'
+
+            }
+            else if (chucvu.value == 2) {
+                luong.value = '20000000'
+
+            }
+            else if (chucvu.value == 3) {
+                luong.value = '100000000'
+
+            }
+
+        }
+    </script>
+</body>
+</html>

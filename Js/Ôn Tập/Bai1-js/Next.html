@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bốn nút button</title>
+</head>
+<body>
+    <h1>Bộ sưu tập ảnh</h1>
+    <img src="img/a1.jpg" id="anh" height="300px" width="300px">
+    <button id="pre" onclick="pre()">pre</button>
+    <button id="start" onclick="start()">start</button>
+    <button id="stop" onclick="stop()">stop</button>
+    <button id="next" onclick="next()">next</button>
+    <p  id="info">1/4</p>
+
+    <script>
+        let index = 1;
+        function pre(){
+            index = index - 1;
+            if( index == 0) index = 4;
+            document.getElementById("info").innerText = index + "/" + 4;
+            document.getElementById("anh").src = "img/a" + index + ".jpg";
+        }
+        function next(){
+            index = index + 1;
+            if(index > 4) index = 1;
+            document.getElementById("info").innerText = index + "/" + 4;
+            document.getElementById("anh").src = "img/a" + index + ".jpg";
+        }
+
+        let n;
+        function start(){
+            n = setInterval(next,1000);
+        }
+        function stop(){
+            clearInterval(n);
+        }
+    </script>
+</body>
+</html>

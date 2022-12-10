@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="HomeController">
+        <h3>{{name}}</h3>
+        <input type="text" ng-moldel="name">
+        <br>
+        <table>
+            <tr ng-repeat="(index, sp) in sanpham">
+                <td>
+                    <input type="checkbox" ng-click="disabled_row(index)" ng-checked="!sp.is_disabled">
+                </td>
+                <td>{{sp.id}}</td>
+                <td>{{sp.name}}</td>
+                <td>{{sp.price}}</td>
+                <td>
+                    <input ng-disabled="sp.is_disabled" type="text" ng_model="sp.quantity">
+                </td>
+                <td>{{sp.price * sp.quantity}}</td>
+            </tr>
+        </table>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        // function HomeController($scope){
+        //     $scope.name = "hello poly"
+        // }
+        var app = angular.module('myapp', []);
+        // scope:  (oject ) 
+        app.controller('HomeController', function ($scope) {
+            $scope.name = "Hello poly";
+            $scope.disabled_row = function (ind) {
+                $scope.sanpham[ind].is_disableb = !$scope.sanpham[ind].is_disableb;
+            };
+            $scope.sanpham = [
+                {
+                    id: 1,
+                    name: "iphone  9",
+                    price: 700,
+                    quantity: 0,
+                    is_disableb: true
+                },
+
+                {
+                    id: 2,
+                    name: "samsung ",
+                    price:   900,
+                    quantity: 0,
+                    is_disableb: true
+                }
+            ]
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Bài 2</title>
+    <link rel="stylesheet" href="./css/bai2.css">
+</head>
+
+<body>
+    <div class="form">
+        <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+        <label for="msv">Mã sinh viên:</label><br>
+        <input type="text" name="msv" id="msv" class="input"><br>
+        <span class="error" id="msv_error"></span><br>
+        <label for="hoten">Họ và tên:</label><br>
+        <input type="text" name="hoten" id="hoten" class="input"><br>
+        <span class="error" id="hoten_error"></span><br>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" class="input"><br>
+        <span class="error" id="email_error"></span><br>
+        <fieldset class="boder" id="gioitinh">
+            <legend>Giới Tính: </legend>
+            <input type="radio" name="gioitinh" id="nam">
+            <label for="nam">Nam</label>
+            <input type="radio" name="gioitinh" id="nu">
+            <label for="nu">Nữ</label>
+        </fieldset>
+        <span class="error" id="gioitinh_error"></span><br>
+
+        <fieldset class="boder" id="sothich">
+            <legend>Sở thích: </legend>
+            <input type="checkbox" name="sothich" id="docsach" value="docsach"><label for="docsach">Đọc sách</label>
+            <input type="checkbox" name="sothich" id="dulich" value="dulich"><label for="dulich">Du lịch</label>
+            <input type="checkbox" name="sothich" id="amnhac" value="amnhac"><label for="amnhac">Âm nhạc</label>
+            <input type="checkbox" name="sothich" id="amthuc" value="amthuc"><label for="amthuc">Ẩm thực</label>
+            <input type="checkbox" name="sothich" id="khac" value="khac"><label for="khac">Khác</label>
+        </fieldset>
+        <span class="error" id="sothich_error"></span><br>
+
+        <label for="quoctich">Quốc tịch</label>
+        <br>
+        <select name="quoctich" id="quoctich">
+            <option value="">Chọn Quốc tịch</option>
+            <option value="vietnam">Việt Nam</option>
+            <option value="trungquoc">Trung Quốc</option>
+            <option value="thailan">Thái Lan</option>
+            <option value="lao">Lào</option>
+            <option value="nhat">Nhật Bản</option>
+        </select>
+        <span class="error" id="quoctich_error"></span><br>
+
+        <label for="ghichu">Ghi Chú</label><br>
+        <textarea name="ghichu" id="ghichu" class="boder" cols="65" rows="5" placeholder="Nhập ghi chú tại đây!!"></textarea>
+        <span class="error" id="ghichu_error"></span><br>
+
+        <button onclick="check();" id="dangky">Đăng ký</button>
+    </div>
+    <script src="./js/bai2.js">
+    </script>
+</body>
+
+</html>

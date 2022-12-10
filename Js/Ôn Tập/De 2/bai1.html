@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="img">
+        <img src="./img/a1.jpg" alt="" id="img" />
+      </div>
+      <script>
+        var i = 0;
+        var r = [
+          "img/a1.jpg",
+          "img/a2.jpg",
+          "img/a3.jpg",
+          "img/a4.jpg",
+        ];
+        let image = document.getElementById("img");
+        function next() {
+          i++;
+          if (i >= r.length) i = 0;
+          image.src = r[i];
+        }
+        let x;
+        function start() {
+          x = setInterval(next, 1500);
+        }
+        start();
+      </script>
+</body>
+</html>

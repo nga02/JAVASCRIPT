@@ -1,0 +1,25 @@
+Chuỗi nhập vào 
+<input type="text" id="Chuoi_goc">
+<br>
+<button onclick="run">Chạy</button>
+<script>
+    function run(){
+        // Đếm số lượng kí tự trong chuỗi gốc
+        // Sử dung split(), foreach, Hàm isNaN
+         // 1. Lấy  gtri của input
+         let str = document.querySelector('#Chuoi_goc').value;
+         // 2. Chuyển chuỗi thành mảng .split('')
+         let arr = str.split('');
+         // 3. Tạo biến đếm = 0
+         let count = 0;
+         // 4. Chạy qua từng ptu mảng
+         // 5. Nếu ptu có isNaN() == false => thì là số
+         // 6. dem++;
+         arr.forEach(function(value){
+             if(value !== " " && isNaN(value)== false);
+             count ++;
+         }
+         // 7. alert số lượng kí tự trong chuỗi
+          ) }
+          console.log(str);
+</script>

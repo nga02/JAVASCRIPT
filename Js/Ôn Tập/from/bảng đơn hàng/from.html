@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng</title>
+</head>
+<body>
+    <h1>Đơn hàng</h1>
+    <div>
+        <label for="">Tên khách hàng</label>
+        <input type="text" id="name">
+        <span id="name_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số điện thoại</label>
+        <input type="text" id="sdt">
+        <span id="sdt_err" style="color: red;"></span>
+    </div>
+    <table border="1" width="600px" height="200px">
+        <tr>
+            <th>Stt</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Bánh ngọt phô mai</th>
+            <th><input type="text" id="gia1" value="1000"></th>
+            <th><input type="number" min="0" id="soluong1" value="0"></th>
+            <th><input type="text" id="thanhtien1" disabled></th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Sue kem dâu</th>
+            <th><input type="text" id="gia2"  value="500"></th>
+            <th><input type="number" min="0" id="soluong2" value="0"></th>
+            <th><input type="text" id="thanhtien2" disabled></th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Trà sữa chân châu</th>
+            <th><input type="text" id="gia3"  value="2000"></th>
+            <th><input type="number" min="0" id="soluong3" value="0"></th>
+            <th><input type="text" id="thanhtien3" disabled></th>
+        </tr>
+        <tr>
+            <th colspan="4">Tổng tiền</th>
+            <th><input type="text" id="thanhtien" value=""></th>
+        </tr>
+    </table>
+    <button onclick="validate()">Đặt mua</button>
+
+    <script>
+        function validate(){
+            // check tên khách hàng
+           let name = document.getElementById('name').value;
+           let name_err = document.getElementById('name_err');
+           let regexName = /^S*[^/d+]*[/d+]{0}[^/d+]*$/
+           if(name==""||name==null){
+               name_err.innerHTML = "Chưa có tên khách hàng !!!"
+           }else if(!regexName.test(name)){
+               name_err.innerHTML = "Tên không đũng định dạng";
+           }else{
+            name_err.innerHTML = ""
+           }
+
+           // check số điện thoại
+           let sdt = document.getElementById('sdt').value;
+           let sdt_err = document.getElementById('sdt_err');
+           if(sdt==""||sdt==null){
+            sdt_err.innerHTML = "Bạn chưa nhập số điện thoại!!!"
+          }
+           else if(isNaN(sdt)==true ){
+             sdt_err.innerHTML = "SĐT phải là số!!!"
+          }else if(sdt.length > 10 || sdt.length < 10){
+              sdt_err.innerHTML = "SĐT chưa đúng !!!"
+          }else{
+              sdt_err.innerHTML = ""
+          }
+
+
+          // thành tiền bánh phomai
+          let gia1 = document.getElementById('gia1').value;
+          let soluong1 = document.getElementById('soluong1').value;
+          let thanhtien1 = document.getElementById('thanhtien1');
+          thanhtien1.value = parseInt(soluong1)*parseInt(gia1);
+
+
+          // thành tiền bánh kem
+          let gia2 = document.getElementById('gia2').value;
+          let soluong2 = document.getElementById('soluong2').value;
+          let thanhtien2 = document.getElementById('thanhtien2');
+          thanhtien2.value = parseInt(soluong2)*parseInt(gia2);
+
+
+          // tính tiền trà sữa chân châu
+          let gia3 = document.getElementById('gia3').value;
+          let soluong3 = document.getElementById('soluong3').value;
+          let thanhtien3 = document.getElementById('thanhtien3');
+          thanhtien3.value = parseInt(soluong3)*parseInt(gia3)
+
+
+
+          // tổng tiền
+          let thanhtien = document.getElementById('thanhtien')
+          thanhtien.value = parseInt(thanhtien1.value) + parseInt(thanhtien2.value) + parseInt(thanhtien3.value)
+
+        }
+    </script>
+</body>
+</html>

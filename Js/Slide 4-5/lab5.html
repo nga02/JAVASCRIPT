@@ -1,0 +1,116 @@
+<style>
+    .error {
+        color: green;
+    }
+</style>
+
+<div>
+    <div><label for="">Họ tên</label></div>
+    <input type="text" name="hoten">
+    <span id="hoten_error" class="error"></span>
+</div>
+<br>
+
+<div>
+    <div> <label for="">Lớp</label></div>
+    <input type="text" name="lop">
+    <span id="lop_error" class="error"></span>
+</div>
+<br>
+
+<div>
+    <div><label for="a">Ngày sinh</label></div>
+    <input type="date" name="ngaysinh" id="a">
+    <span id="ngaysinh_error" class="error"></span>
+</div>
+<br>
+
+<div>
+    <div><label for="">Đã kết hôn chưa:</label></div>
+    <input name="gender" type="radio">chưa
+    <input name="gender" type="radio"> đã kết hôn
+    <span id="kethon_error" class=""></span>
+</div>
+<br>
+
+<div>
+    <div><label for="">Quê quán</label></div>
+    <select name="" id="provice"></select>
+    <script src="provinces.js"></script>
+    <script>
+        let content = "";
+        for (const tinh of provinces) {
+            /*Các thẻ <option</option> ở trong là các lựa chọn mà 
+            người dùng có thể chọn. Thuộc tính id giúp lập trình viên
+            xác định được thẻ select để sau này thao tác với thẻ này.
+            Thuộc tính value là giá trị trả về khi lấy giá trị thẻ select trong JavaScript. 
+            Tùy thuộc vào mục đích của mỗi dự án mà bạn có thể đặt value khác nhau*/
+            content += `<option>${tinh.name}<option>`;
+        }
+        document.querySelector('select').innerHTML = content
+    </script>
+</div>
+<br>
+<button onclick="check()">Submit</button><br>
+
+<!-- // Hiển thị ra thông tin đã nhập -->
+<h3> Kết quả thông tin </h3>
+<p>Tên bạn vừa nhập là: </p>
+<div class="name"></div>
+<p>Lớp bạn vừa nhập là: </p>
+<div class="class"></div>
+
+
+
+<script>
+    function check() {
+        // Check khoảng trắng họ tên
+        let theHoTen = document.querySelector(`[name="hoten"]`);
+        let HotenErr = document.querySelector(`#Hoten_error`);
+        let Hoten = theHoTen.value.trim();
+        let ktt = "";
+        if (Hoten.length == 0) {
+            ktt = "Mời nhập họ tên !"
+        }
+
+        if (ktt.length > 0) {
+            HotenErr.innerText = ktt;
+        } else {
+            HotenErr.innerText = "";
+        }
+        // Trong thẻ họ tên chỉ có chữ
+
+        document.querySelector('.name').innerHTML = Hoten;
+
+      
+
+
+
+
+
+
+
+        // Check khoảng trắng lớp
+        let theolop = document.querySelector(`[name="lop"]`);
+        let lopErr = document.querySelector(`#lop_error`);
+        let lop = theolop.value;
+        let ktlop = "";
+        if (lop.length == 0) {
+            ktlop = "Mời nhập lớp !"
+        }
+        if (ktlop.length > 0) {
+            lopErr.innerHTML = ktlop;
+        } else {
+            lopErr.innerText = "";
+        }
+        document.querySelector('.class').innerHTML = lop;
+
+
+        // Check khoảng trắng ngày sinh
+
+    }
+
+
+
+
+</script>

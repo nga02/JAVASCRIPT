@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xuất bản sách</title>
+</head>
+<body>
+    <h1>Xuất bản sách</h1>
+    <div>
+        <label for="">Tên sách</label>
+        <input type="text" id="name">
+        <span id="name_err" style="color:red"></span>
+    </div>
+    <div>
+        <label for="">Nhà xuất bản</label>
+        <input type="text" id="xuatban">
+        <span id="xuatban_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số lượng</label>
+        <input type="text" id="number" >
+        <span id="number_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Đơn giá</label>
+        <input type="text" id="dongia">
+        <select id="menhgia">
+            <option value="0">Mệnh giá</option>
+            <option value="1">VND</option>
+            <option value="2">USD</option>
+            <option value="3">NDT</option>
+        </select>
+        <span id="dongia_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Tổng tiền</label>
+        <input type="text" id="tongtien">
+        <span id="tongtien_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Ngày tháng năm xuất bản</label>
+        <input type="date" id="ngayxb">
+        <span id="ngayxb_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Loại sách</label>
+        <select id="sach">
+            <option value="0">Loại sách</option>
+            <option value="1">Sách thiếu nhi</option>
+            <option value="2">Sách trinh thám</option>
+            <option value="3">Sách kinh dị</option>
+        </select>
+        <span id="sach_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Người nhập</label>
+        <input type="text" id="nguoinhap">
+        <span id="nguoinhap_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Sản phẩm đang có</label>
+        <input type="checkbox" name="sp" id="kho" value="kho">Trong kho
+        <input type="checkbox" name="sp" id="ban" value="ban">Bày bán 
+        <input type="checkbox" name="sp" id="ckt" value="ckt">Chưa kiếm tra
+        <span id="sp_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Nơi nhận hàng</label>
+        <input type="radio" name="nhanhang" id="noithanh" value="noithanh">Nội thành
+        <input type="radio" name="nhanhang" id="ngoaithanh" value="ngoaithanh">Ngoại thành
+    </div>
+    <div>
+        <button onclick="validate()">Hiển thị thông tin</button>
+        <button type="reset" onclick="reset()">Xóa thông tin</button>
+    </div>
+
+
+    <script>
+        function reset(){
+            location.reload();
+        }
+        function validate(){
+            // check tên sách
+            let tensach = document.getElementById('name').value;
+            let tensach_err = document.getElementById('name_err');
+            if(tensach=="" || tensach == null){
+                tensach_err.innerHTML="Bạn chưa nhập tên sách !!!"
+            }else{
+                tensach_err.innerHTML = ""
+            }
+
+
+            // check nhà xuất bản
+            let nhaxb = document.getElementById('xuatban').value;
+            let xuatban_err = document.getElementById('xuatban_err');
+            if(nhaxb==""||nhaxb==null){
+                xuatban_err.innerHTML = "Bạn chưa có nhà xuất bản!!!"
+            }else{
+                xuatban_err.innerHTML=""
+            }
+
+
+            //check số lượng
+            let soluong = document.getElementById('number').value;
+            let number_err = document.getElementById('number_err');
+            if(soluong=="" || soluong==null){
+                number_err.innerHTML  = "Bạn chưa nhập số lượng"
+            }else if(isNaN(soluong)==true || soluong < 0){
+                number_err.innerHTML = "Số lượng phải là số"
+            }else{
+                number_err.innerHTML = ""
+            }
+
+            // check đơn giá
+            let dongia = document.getElementById('dongia').value;
+            let dongia_err = document.getElementById('dongia_err');
+            if (dongia==0){
+                dongia_err.innerHTML = "Bạn chưa có đơn giá!!!"
+            }else{
+                dongia_err.innerHTML = ""
+            }
+
+            // check tổng tiền
+            let tongtien = document.getElementById('tongtien').value;
+            let tongtien_err = document.getElementById('tongtien_err');
+            if(tongtien==""||tongtien==null){
+                tongtien_err.innerHTML = "Bạn chưa nhập tổng tiền!!!"
+            }else if(isNaN(tongtien)==true||tongtien<0){
+                tongtien_err.innerHTML = "Tiền phải là số !!!"
+            }
+            else{
+                tongtien_err.innerHTML = ""
+            }
+
+            // check thời gian xuất bản
+            let ngayxb = document.getElementById('ngayxb').value;
+            let ngayxb_err = document.getElementById('ngayxb_err');
+            if(ngayxb==""||ngayxb==null){
+                ngayxb_err.innerHTML = "Chưa có ngày xuất bản !!!"
+            }else{
+                ngayxb_err.innerHTML=""
+            }
+
+        }
+    </script>
+</body>
+</html>

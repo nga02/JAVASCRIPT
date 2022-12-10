@@ -1,0 +1,22 @@
+Số thứ nhất: <input type="text" id="chuoi_goc">
+<br>
+<button onclick="chuyenSo()">Chạy</button>
+<script>
+   function chuyenSo(){
+   // nhập các số trong thẻ input, mỗi số cách nhau bằng 1 dấu cách
+   // lấy giá trị trong thẻ input
+   // thực hiện biến đổi dữ liệu từ chuỗi sang mảng số
+   // thực hiện lọc chuỗi sao cho chuỗi mới chỉ chứa bình phương của các số chia hết cho 2 và 3
+   // hiển thị các kết quả ra console.log()
+      let str = document.querySelector('#chuoi_goc').value;
+      let arr = str.split(' ');
+      let arr2 = arr.map(function(value, index){
+         return Math.pow(value, 2)
+      });
+      let chuoi_moi = arr.filter(function(arr2){
+         return arr2 % 2 == 0 && arr2 % 3 == 0
+      })
+      console.log(chuoi_moi)
+   }
+   
+</script>

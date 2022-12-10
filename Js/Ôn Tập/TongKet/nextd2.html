@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lê Cúc</title>
+</head>
+
+<body>
+    <button onclick="pre()">prew</button>
+    <img id="anh" src="img/a1.jpg" width="200px" height="200px" />
+    <button onclick="next()">next </button>
+    <p id="info" style="padding-left: 120px;">1/4</p>
+</body>
+<script>
+    
+    let index = 1;
+    function pre() {
+        index = index - 1;
+        if (index == 0) index = 4;
+        document.getElementById("info").innerText = index + "/" + 4;
+        document.getElementById("anh").src = "img/a" + index + ".jpg";
+    }
+   
+    function next() {
+        index = index + 1;
+        if (index > 4) index = 1;
+        document.getElementById("info").innerText = index + "/" + 4;
+        document.getElementById("anh").src = "img/a" + index + ".jpg";
+    }
+
+    
+// Hai cái dòng trên t coment lại á, nếu để 2 dòng đó thì ko next đc ảnh
+// Còn nếu bỏ 2 dong đó đi thì phần vị trí ảnh ko hoạt động đc á
+
+</script>
+
+</html>

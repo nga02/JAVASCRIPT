@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ass.css">
+  
+</head>
+
+<body>
+    <div class="contaner">
+        <div class="form">
+            <h2>Đăng kí</h2>
+            <form id="frm1">
+                <p>
+                    <label>Mã sinh viên</label>
+                    <input type="text" class="txt" id="msv" name="msv" placeholder="Mã sinh viên có 7 ký tự">
+                    <span class="error" id="name_error"></span>
+                </p>
+                <p>
+                    <label>Họ tên</label>
+                    <input type="text" class="txt" id="hoten" name="hoten" placeholder="Nhập họ tên của bạn">
+                </p>
+                <p>
+                    <label>Email</label>
+                    <input type="email" class="txt" id="email" name="email" placeholder="Nhập email của bạn">
+                </p>
+                <p>
+                    <label>Giới tính</label>
+                    <span id="chonphai">
+                        <input type="radio" name="phai" value="Nam"><label>Nam</label>
+                        <input type="radio" name="phai" value="Nữ"><label>Nữ</label><br>
+                    </span>
+                </p>
+                <p>
+                    <label>Sở thích</label>
+                    <span id="chonsothich">
+                        <input type="checkbox" name="st" id="docsach">
+                            <label >Đọc sách</label>
+                    
+                            <input type="checkbox" name="st" id="dulich"> 
+                            <label >Du lịch</label>
+                        
+                            <input type="checkbox" name="st" id="amnhac">
+                            <label >Âm nhạc</label>
+                            
+                            <input type="checkbox" name="st" id="amthuc">
+                            <label >Ẩm thực</label>
+                        
+                            <input type="checkbox" name="st" id="khac">
+                            <label >Khác</label>
+                    </span>
+                </p>
+                <p>
+                    <label>Quốc tịch</label>
+                    <select name="quoctich" id="quoctich" class="txt">
+                        <option value="Chọn quốc tịch">Chọn quốc tịch</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailan">Thailan</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Korea">Korea</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Ghi chú</label>
+                    <textarea class="txt" id="ghichu" name="ghichu" rows="6" placeholder="Ghi chú"></textarea>
+                </p>
+                </p>
+                <p>
+                    <label></label>
+                    <span id="baoloi"></span>
+                </p>
+                <p>
+                    <label></label>
+                    <button type="button" onclick="kiemtra()" id="dangki">Đăng ký</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //js trang đăng kí
+function kiemtra() {
+    var loi = "";
+    //mã sv
+    var masv = document.getElementById("msv");
+    if (masv.value == "") {
+        masv.className = "loi";
+        loi += "Mã sinh viên không được bỏ trống<br>";
+    }
+    else masv.className = "txt";
+
+    //ten
+    var hoten = document.getElementById("hoten");
+    if (hoten.value == "") {
+        hoten.className = "loi";
+        loi += "Họ và tên không được bỏ trống.<br>";
+    }
+    else hoten.className = "txt";
+
+    //email
+    var email = document.getElementById("email");
+    if (email.value == "") {
+        email.className = "loi";
+        loi += "Email không được bỏ trống.<br>";
+    } else {
+        email.className = "txt";
+    }
+
+
+    //gioi tinh
+    dem = 0;
+    var arr_phai = document.getElementsByName("phai");
+    for (var i = 0; i < arr_phai.length; i++) {
+        if (arr_phai[i].checked) {
+            dem++;
+        }
+    }
+    if (dem == 0) {
+        document.getElementById("chonphai").className = "loi";
+        loi += "Phải chọn giới tính.<br>";
+    }
+    else document.getElementById("chonphai").className = "";
+
+    //so thich
+    arr_sothich = document.getElementsByClassName("sothich");
+    dem = 0;
+    for (var i = 0; i < arr_sothich.length; i++) {
+        if (arr_sothich[i].checked) dem++;
+    }
+    if (dem == 0) {
+        document.getElementById("chonsothich").className = "loi";
+        loi += "Phải chọn ít nhất 1 sở thích.<br>";
+    }
+    else document.getElementById("chonsothich").className = "";
+
+    //quoctich
+    var qt = document.getElementById("quoctich");
+    if (qt.value == 0) {
+        qt.className = "loi";
+        loi += "Phải chọn một quốc tịch.<br>";
+    }
+    else qt.className = "txt";
+
+    //ghi chú
+    var gc = document.getElementById('ghichu');
+    if (gc.value.length > 200) {
+        gc.className = "loi";
+        loi += "Ghi chs phải dưới 200 kí tự.<br>";
+    }
+    else gc.className = "txt";
+    //trả về kq lỗi
+    if (loi != "") {
+        document.getElementById('baoloi').innerHTML = loi;
+        return false;
+    }
+    document.getElementById(name_error).innerText=loi;
+}
+// Kiểm tra số kí tự trong ghi chú
+
+
+</script>

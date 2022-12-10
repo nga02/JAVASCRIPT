@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+<body>
+    <button class="pre" onclick="pre()">pre</button>
+    <img src="img/a1.jpg" id="anh" width="200px" height="200px" >
+    <button class="next" onclick="next()">next</button>
+    <script>
+        let index = 1;
+        function pre(){
+            index = index - 1;
+            if(index==0) index = 4;
+                document.getElementById('anh').src = "img/a" + index + ".jpg";
+            
+        }
+
+        function next(){
+            index = index + 1;
+            if(index > 4) index = 1;
+            document.getElementById('anh').src = "img/a" + index +".jpg";
+        }
+
+        let n = 0;
+
+    </script>
+</body>
+</html>

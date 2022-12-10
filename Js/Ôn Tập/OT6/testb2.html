@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From</title>
+</head>
+
+<body>
+    <h1>Đăng nhập</h1>
+    <div>
+        <label for="">Đăng nhập bằng email</label><br>
+        <input type="text" id="dangnhap"><br>
+        <span id="email_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Mật khẩu</label><br>
+        <input type="text" id="mk"><br>
+        <span id="mkhau_err" style="color: red;"></span>
+    </div>
+    <div>
+        <button type="button" onclick="validate()">Đăng nhập</button>
+    </div>
+
+
+
+    <script>
+        function validate() {
+            //Check email
+           let email = document.getElementById('dangnhap');
+           let email_err = document.getElementById('email_err');
+           let checkemail = email.value.trim();
+            // Ktra khoảng trắng
+            let ktr = "";
+            if (checkemail.length == 0) {
+                ktr = "Email không đc để trống !"
+            }
+            else {
+                email_err.innerText = ktr;
+            }
+            email_err.innerText = ktr;
+
+
+
+
+
+
+            //Check mật khẩu
+            let matkhau = document.getElementById('mk');
+            let matkhau_err = document.getElementById('mkhau_err');
+            let checkmk = matkhau.value.trim();
+            let check = "";
+            if (checkmk.length == 0) {
+                check = "Không được bỏ trống mật khẩu !"
+            } else {
+                matkhau_err.innerText = check;
+            }
+            matkhau_err.innerText = check;
+
+
+            
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

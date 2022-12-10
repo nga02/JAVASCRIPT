@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hóa đơn</h1>
+    <div>
+        <label for="">Khách hàng</label>
+        <input type="text" id="khachhang">
+        <span class="err" id="khachhang_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Loại hàng</label>
+        <select name="" id="loaihang">
+            <option value="0">Loại 1</option>
+            <option value="1">Loại 2</option>
+            <option value="2">Loại 3</option>
+        </select>
+        <span class="err" id="loaihang_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Đơn giá</label>
+        <input type="text" id="dongia">
+        <span class="err" id="dongia_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số lượng</label>
+        <input type="number" min="0" id="soluong" >
+        <span class="err" id="soluong_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Thành tiền</label>
+        <input type="text" id="thanhtien">
+        <span class="err" id="thanhtien_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Nơi nhận hàng</label>
+        <input type="radio" name="nhanhang" id="noithanh">Nội thành
+        <input type="radio">
+    </div>
+    <div></div>
+</body>
+</html>

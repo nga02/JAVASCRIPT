@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+		.container{
+			width: 400px;
+			margin-left: 30%;
+			padding: 20px;
+			text-align: center;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		.btn{
+			margin: 15px 0;
+		}
+		button{
+			padding:8px 15px;
+			border-radius: 5px;
+			font-weight: bold;
+			outline: none;
+			border: 1px solid #ccc;
+			margin: 10px;
+			cursor: pointer;
+			transition: .4s;
+
+		}
+		button:hover{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="btn">
+			<button onclick="Prev()">Prev</button>
+			<button onclick="Next()">Next</button>
+		</div>
+		<img src="images/anh0.png" width="250" id="img">
+	</div>
+	<script>
+		var images=[];
+		for(var i=0;i<5;i++){
+			images[i]=new Image();
+			images[i].src="images/anh"+i+".png";
+		}
+		var img=document.getElementById("img");
+		var index=0;
+		function Next(){
+			index++;
+			if(index>images.length-1){
+				index=0;
+			}
+
+			img.src=images[index].src;
+		}
+
+		function Prev(){
+			index--;
+			if(index<0){
+				index=images.length-1;
+			}
+
+			img.src=images[index].src;
+		}
+	</script>
+</body>
+</html>

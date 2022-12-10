@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="img/a1.jpg" id="anh" width="500px" height="500px">
+    <p id="info">1/4</p>
+    <div class="button">
+        <button class="stop" onclick="stop()">stop</button>
+        <button class="start" onclick="start()">start</button>
+    </div>
+
+    <script>
+        let index = 1;
+        let n;
+        function start(){
+           index = index + 1;
+           if(index > 4) index = 1;
+           document.getElementById('info').innerHTML = index + "/" + 4;
+           document.getElementById('anh').src = "img/a" + index + ".jpg";
+           n = setTimeout('start()', 1500);
+        }
+        
+        function stop(){
+            clearTimeout(n);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+Chuỗi:
+- Cách tạo ra chuỗi: '' / "" / ``
+- Lấy số lượng kí tự trong chuỗi: .lenght
+- Trim(): xóa kí tự khoảng trắng đầu hoặc cuối
+- Substring(): lấy một đoạn kí tự trong chuỗi gốc dựa vào vị trí bắt đầu
+- Split(): chuyển chuỗi thành mảng dựa vào một kí tự nào đó (tham số)
+- replace(): tìm kiếm -> thay thế một kí tự hoặc một chuỗi = 1 Chuỗi
+
+
+
+Mảng:
+- includes(): xác định một giá trị có tồn tại trong mảng hay ko => true/false
+- indexOf(): 
+- lastIndexOf(): xác định một giá trị có tồn tại trong mảng hay ko(nếu có -> index / nếu ko trả về -1)
+
+- forEach(): trong một số trong chuỗi khi ko liền mạch (ko trả về)/ chạy qua các ptu
+- map(): sinh ra/ biến đổi một mảng gốc một mảng mới, chứa gtri đã đc biến đổi.
+
+- filter(): Mảng mới trả về ptu thỏa mãn điều kiện (ptu tra về true)
+- reverse():
+- sort():
+- join(): chuyển mảng -> chuỗi

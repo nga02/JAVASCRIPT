@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng trong tiệm</title>
+</head>
+<body>
+    <h1>Đơn hàng</h1>
+    <div></div>
+    <div></div>
+    <table border="1px" style="width: 600px; height: 200px;">
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Bánh ngọt phomai</th>
+            <th><input type="text" id="gia1" value="1000"></th>
+            <th><input type="number" id="soluong1" value=""></th>
+            <th> <input type="text" id="thanhtien1" ></th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Sukem phomai</th>
+            <th><input type="text" id="gia2" value="500"></th>
+            <th><input type="number" id="soluong2" value=""></th>
+            <th><input type="text" id="thanhtien2" ></th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Trà sữa</th>
+            <th><input type="text" id="gia3" value="2000"></th>
+            <th><input type="number" id="soluong3" value=""></th>
+            <th><input type="text" id="thanhtien3" ></th>
+        </tr>
+        <tr>
+            <th colspan="4">Tổng tiền</th>
+            <th><input type="text" id="thanhtien" value=""></th>
+        </tr>
+    </table>
+    <button onclick="validate()">Đặt mua</button>
+
+
+    <script>
+        function validate(){
+            
+
+
+
+            // tính tiền bánh ngọt
+            let gia1 = document.getElementById('gia1').value;
+            let soluong1 = document.getElementById('soluong1').value;
+            let thanhtien1 = document.getElementById('thanhtien1');
+            thanhtien1.value = parseInt(gia1)*parseInt(soluong1);
+
+
+            // tính tiền bánh sukem phomai
+            let gia2 = document.getElementById('gia2').value;
+            let soluong2 = document.getElementById('soluong2').value;
+            let thanhtien2 = document.getElementById('thanhtien2');
+            thanhtien2.value = parseInt(gia2)*parseInt(soluong2);
+
+
+
+            // tổng tiền
+            let thanhtien = document.getElementById('thanhtien');
+            thanhtien.value = parseInt(thanhtien1.value)+parseInt(thanhtien2.value);
+        }
+    </script>
+</body>
+</html>

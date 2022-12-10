@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From bài 2</title>
+</head>
+<body>
+    <h1>Hóa đơn</h1>
+    <div>
+        <label for="">Khách hàng</label>
+        <input type="text" id="khachang">
+        <span class="err" id="khachang_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Loại hàng</label>
+        <select  id="loaihang" onchange="thaydoi()">
+            <option value="0" selected disabled>Chọn loại hàng</option>
+            <option value="1">Loại 1</option>
+            <option value="2">Loai 2</option>
+            <option value="3">Loai 3</option>
+        </select>
+        <span class="err" id="loaihang_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Đơn giá</label>
+        <input type="text" id="dongia">
+        <span class="err" id="dongia_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số lượng</label>
+        <input type="number" min="0" id="soluong" onchange="thay()">
+        <span class="err" id="soluong_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Thành tiền</label>
+        <input type="text" id="thanhtien">
+        <span class="err" id="thanhtien_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Nơi nhận hàng</label>
+        <input type="radio" name="nhanhang" id="noithanh"  value="noithanh">Nội thành
+        <input type="radio" name="nhanhang" id="ngoaithanh" value="ngoaithanh">Ngoại thành
+        <span class="err" id="nhanhang_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Phí vận chuyển</label>
+        <input type="text" id="vanchuyen">
+        <span class="err" id="vanchuyen_err" style="color: red;"></span>
+    </div>
+    <div>
+        <button onclick="validate()">Đặt mua</button>
+    </div>
+
+    <script>
+        function validate(){
+            // check khách hàng
+            let khachang = document.getElementById('khachang').value;
+            let khachang_err = document.getElementById('khachang_err');
+            if(khachang=="" || khachang==null){
+                khachang_err.innerHTML="Bạn chưa nhập khách hàng !!!"
+            }else{
+                khachang_err.innerHTML = "";
+            }
+
+            // Check loại hàng
+            let loaihang = document.getElementById('loaihang').value;
+            let loaihang_err = document.getElementById('loaihang_err');
+            if(loaihang=="0"){
+                loaihang_err.innerHTML = "Bạn chưa chọn loại hàng !!!"
+            }else{
+                loaihang_err.innerHTML = ""
+            }
+
+            // check đơn giá
+            let dongia = document.getElementById('dongia').value;
+            let dongia_err = document.getElementById('dongia_err');
+            if(dongia==""||dongia==null){
+                dongia_err.innerHTML = "Bạn chưa nhập đơn giá !!!"
+            }else{
+                dongia_err.innerHTML = ""
+            }
+
+            // Check  số lượng
+            let soluong = document.getElementById('soluong').value;
+            let soluong_err = document.getElementById('soluong_err');
+            if(soluong==""||soluong==null){
+                soluong_err.innerHTML = "Bạn chưa có số lượng !!!"
+            }else{
+                soluong_err.innerHTML = ""
+            }
+
+            // check thành tiền
+            let thanhtien = document.getElementById('thanhtien').value;
+            let thanhtien_err = document.getElementById('thanhtien_err');
+            if(thanhtien==""||thanhtien==null){
+                thanhtien_err.innerHTML = "Bạn chưa có thành tiền !!!"
+            }else{
+                thanhtien_err.innerHTML = ""
+            }
+
+
+            // check nơi nhận hàng
+            let noithanh = document.getElementById('noithanh');
+            let ngoaithanh = document.getElementById('ngoaithanh');
+            if(noithanh.checked == false & ngoaithanh.checked == false){
+                nhanhang_err.innerHTML = "Bạn chưa chọn nơi vận chuyển !!!"
+            }else{
+                nhanhang_err.innerHTML = ""
+            }
+
+            // check phí vận chuyển
+            let vanchuyen = document.getElementById('vanchuyen').value;
+            let vanchuyen_err = document.getElementById('vanchuyen_err');
+            if(vanchuyen==""|| vanchuyen==null){
+                vanchuyen_err.innerHTML = "Bạn chưa có phí vận chuyển !!!"
+            }else{
+                vanchuyen_err.innerHTML = ""
+            }
+        }
+
+            // Thay đổi đơn giá khi chọn loại hàng
+            function thaydoi(){
+            let loaihang = document.getElementById("loaihang");
+            let dongia = document.getElementById('dongia');
+            if(loaihang.value == 1){
+                dongia.value = "500000"
+            }
+            else if(loaihang.value == 2){
+                dongia.value ="300000"
+            }
+            else if(loaihang.value == 3){
+                dongia.value = "100000"
+            }
+        }
+            
+
+        // Tính tiền
+
+
+        
+    </script>
+</body>
+</html>

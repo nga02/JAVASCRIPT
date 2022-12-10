@@ -1,0 +1,36 @@
+<script>
+    // let arr = [1, 5.5, false, "Poly", [3, 5], {id:1}];
+    // console.log(arr);
+    let arr = [1, 2, 3, 4, 3, 6, 3, 8, 9, 10];
+
+    // Ktra số 3 trong mảng
+    // console.log(arr.includes(30));
+    // console.log(arr.indexOf(3));
+    // console.log(arr.lastIndexOf(3));
+
+    // delete arr[2];
+    // delete arr[3];
+    console.log(arr);
+    // arr.forEach(function (value, index) {
+    //     console.log('${index} - ${value}');
+    // })
+    
+
+
+    // let arr2 = arr.map(function(value, index){
+    //     if (value %2 ==0 ){
+    //           // Bình phương
+    //     return Math.pow(value, 2);
+    //     }
+    //   return value;
+    // });
+    // console.log(arr2)
+
+
+
+    let arr3 = arr.filter(function(value){
+        return value %3 == 0 || value %4 == 0;
+    })
+    console.log(arr3);
+
+</script>

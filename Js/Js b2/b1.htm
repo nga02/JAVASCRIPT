@@ -1,0 +1,29 @@
+Số thứ 1: <input type="text" id="so1" name='a'>
+<br>
+Số thứ 2:<input type="text" id="so2" name>
+<br>
+<button onclick="demso()">Run</button>
+<div id="result"></div>
+<script>
+    // viết 2 số vào 2 thẻ input ở trên
+    // bấm phím run
+    // yêu cầu hiển thị danh sách các số chạy từ 1 đến số 2
+    // b1: tạo sự kiện cho thẻ button 
+    // b2:tạo hàm trong js để tạo kịch bản cho sự kiện click b1 
+
+    function demso() {
+        let theso1 = document.querySelector('#so1')
+        let theso2 = document.querySelector('#so2')
+        // b3:lấy giá trị của thẻ input #so1
+        // b4:lấy giá trị của thẻ input #so2
+        let so1 = parseInt(theso1.value);
+        let so2 = parseInt(theso2.value);
+        let content = "";
+        // b5:tạo vòng lặp chạy từ giá trị của so 1 -> so 2 
+        for (let i = so1; i <= so2; i++) {
+            content += i + '<a>';
+        }
+        document.querySelector('#result').innerHTML = content;
+    }
+    // b6: hiển thị só vào trong thẻ #result
+</script>

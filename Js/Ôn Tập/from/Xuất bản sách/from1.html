@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Thông tin sản phẩm sách</h1>
+        </center>
+        <hr>
+        <br>
+        <div id="khung">
+            <fieldset id="fs">
+                <legend>Thông tin nhà sách</legend>
+                <form action="" method="" name="register" onsubmit=" kiemTra()">
+                    <table>
+                        <tr>
+                            <th>Tên sách:</th>
+                            <td><input type="text" id="BookName">
+                                <span style="color: red; " class="error" id="errorBookName"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Nhà xuất bản:</th>
+                            <td><input type="text" id="nxb">
+                                <span style="color: red; " class="error" id="errorNxb"></span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>Số lượng:</th>
+                            <td><input type="text" onkeyup="tinh_Tong()" value="" id="amount">
+                                <span style="color: red; " class="error" id="errorAmount"></span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>Đơn giá:</th>
+                            <td>
+                                <input type="text" onkeyup="tinh_Tong()" value="" id="price">
+
+                                <select name="" id="menhGia">
+                                    <option value="VND">VND</option>
+                                    <option value="USD">USD</option>
+                                    <option value="BẢNG">BẢNG</option>
+                                </select>
+                                <span style="color: red; " class="error" id="errorPrice"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền:</th>
+                            <td><input type="number" min="0" id="sum">
+                                <span id="hienThi"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ngày tháng năm xuất bản:</th>
+                            <td><input type="date" id="ngay" min="1990-01-01"></td>
+                            <span style="color: red; " class="error" id="errorDate"></span>
+                        </tr>
+                        <tr>
+                            <th>Loại sách:</th>
+                            <td>
+                                <select>
+                                    <option value="">Sách thiếu nhi</option>
+                                    <option value="">Sách khoa học kĩ thuật</option>
+                                    <option value="">Sách Lịch sử</option>
+                                    <option value="">Sách địa lý</option>
+                                    <option value="">Sách ngoại ngữ</option>
+                                    <option value="">Sách pháp thuật</option>
+                                    <option value="">Loại khác</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Người nhập:</th>
+                            <td>
+                                <input type="text" id="name">
+                                <span style="color: red; " class="error" id="errorName"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sản phẩm đang có:</th>
+                            <td>
+                                <input type="checkbox">Trong kho
+                                <input type="checkbox">Bày bán
+                                <input type="checkbox">Chưa kiểm tra
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nơi nhận hàng:</td>
+                            <td>
+                                <input type="radio" name="add" value="0" id="noiThanh" onclick="hienThi(false)">Nội
+                                thành
+                                <input type="radio" name="add" value="30000" id="ngoaiThanh"
+                                    onclick="hienThi(true)">Ngoại
+                                thành
+                            </td>
+                            <span style="color: red; " class="error" id="errorAdd"></span>
+                        </tr>
+                        <tr id="ship" style="display: none;">
+                            <td>Phí vận chuyển:</td>
+                            <td>
+                                <input value="30000" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <button style="margin-right: 10px;">Hiển thị thông tin</button>
+                                <button type="reset">Xóa thông tin</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <script>
+        function kiemTra() {
+            // sách
+            var BookName = document.getElementById("BookName").value;
+            var errorBook = document.getElementById('errorBookName');
+            // nhà xuất bản
+            var nxb = document.getElementById('nxb').value;
+            var errorNxb = document.getElementById('errorNxb');
+            // số lượng
+            var amount = document.getElementById('amount').value;
+            var errorAmount = document.getElementById('errorAmount');
+            // giá cả
+            var price = document.getElementById('price').value;
+            var errorPrice = document.getElementById('errorPrice');
+            // tên người nhập
+            var name = document.getElementById("name").value;
+            var errorName = document.getElementById('errorName');
+            var regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+            // tổng tiền
+            var sumMoney = document.getElementById('sum').value;
+            // mệnh giá
+            var menhGia = document.getElementById('menhGia').value;
+            // nội thành
+
+
+
+            // tên người nhập
+            if (name == '' || name == null) {
+                errorName.innerHTML = "Không được để trống tên người nhập!!!";
+            }
+            else if (!regexName.test(name)) {
+                errorName.innerHTML = 'Họ và tên không hợp lệ';
+            }
+            else {
+                errorName.innerHTML = '';
+            }
+            // tên sách
+            if (BookName == '' || BookName == null) {
+                errorBook.innerHTML = "Không được để trống tên sách !!!";
+            }
+            else {
+                errorBook.innerHTML = '';
+            }
+            // nhà xuất bản
+            if (nxb == '' || nxb == null) {
+                errorNxb.innerHTML = "Không được để trống nhà xuất bản !!!";
+            }
+            else {
+                errorNxb.innerHTML = '';
+            }
+            // số lượng
+            if (amount == '' || amount == null) {
+                errorAmount.innerHTML = "Không được để trống số lượng !!!";
+            }
+            else {
+                errorAmount.innerHTML = '';
+            }
+            // đơn giá
+            if (price == '' || price == null) {
+                errorPrice.innerHTML = "Không được để trống đơn giá !!!";
+            }
+            else {
+                errorPrice.innerHTML = '';
+            }
+            document.getElementById('hienThi').innerHTML = `${menhGia}`;
+
+            event.preventDefault();
+
+        }
+
+        function hienThi(tien) {
+            var ship = document.getElementById("ship");
+            ship.style.display = tien ? "" : "none";
+
+        }
+
+        function tinh_Tong() {
+            var tong = document.getElementById("sum");
+            document.getElementById("sum").value = price.value * amount.value;
+
+        }
+
+    </script>
+</body>
+
+</html>

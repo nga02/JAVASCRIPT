@@ -1,0 +1,10 @@
+// VD: bấm nút onclick -> hiển thị
+
+<p>Hãy nhấn nút hiểm thị ngày!</p>
+<button onclick="ngayhomnay()">Hiển thị</button>
+<script>
+    function ngayhomnay() {
+        document.getElementById("chay").innerHTML = Date();
+    }
+</script>
+<p id="chay"></p>

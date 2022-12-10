@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+       <button class="btp" onclick="btp();">pre</button>
+       <img src="img/a1.jpg" alt="">
+       <button class="btn" onclick="btn();">next</button>
+       <strong id="dem">1</strong>/<strong id="tong">4</strong>
+   </div>
+   <script>
+       let i = 1;
+       changeImg = function changeImg(){
+           let arr = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+           document.getElementById("img").src = arr[i];
+           i++;
+           document.getElementById("dem").innerText=i;
+           document.getElementById("tong").innerText=arr.length;
+           if(i>=5){
+               i=0
+           }
+           setInterval(changeImg, 1500);
+       }
+   </script>
+</body>
+</html>

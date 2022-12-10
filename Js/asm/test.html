@@ -1,0 +1,149 @@
+<body>
+    <form>
+        <h2 align="center">ĐĂNG KÍ THÀNH VIÊN</h2>
+
+        <div>
+            <label for="">Mã sinh viên</label><br>
+            <input type="text" name="msv" class="input">
+            <span id="msv_error" class="error"></span>
+        </div>
+
+        <div>
+            <label for="">Họ và tên</label><br>
+            <input type="text" name="name" class="input">
+            <span id="name_error" class="error"></span>
+        </div>
+        <div>
+            <label for="">Email</label><br>
+            <input type="email" name="email" class="input">
+            <span id="email_error" class="error"></span>
+        </div>
+        <br>
+
+        <label for="Giới tính">Giới tính</label>
+        <br>
+        <fieldset class="input">
+            <input type="radio" name="gioitinh" id="nam">
+            <label for="nam">Nam</label>
+            <input type="radio" name="gioitinh" id="nữ">
+            <label for="nu">Nữ</label>
+        </fieldset>
+        <span id="gt_error" class="error"></span>
+
+        <label for="Sở thick">Sở thích</label>
+        <fieldset class="input">
+            <input type="checkbox" name="docsach" id="docsach">
+            <label for="">Đọc sách</label>
+            <input type="checkbox" name="dulich" id="dulich">
+            <label for="">Du lịch</label>
+            <input type="checkbox" name="amnhac" id="amnhac">
+            <label for="">Âm nhạc</label>
+            <input type="checkbox" name="amthuc" id="amthuc">
+            <label for="">Ẩm thực</label>
+            <input type="checkbox" name="khac" id="khac">
+            <label for="">Khác</label>
+        </fieldset>
+        <span id="favourite_error" class="error"></span>
+        <label for="quoctich">Quốc tịch </label><br>
+        <select name="quoctich" id="quoctich" class="input">
+            <option value="Chọn quốc tịch">Chọn quốc tịch</option>
+            <option value="vietnam">vietnam</option>
+            <option value="Thailan">Thailan</option>
+            <option value="Japan">Japan</option>
+            <option value="Korea">Korea</option>
+            <option value="USA">USA</option>
+        </select>
+        <span id="national_error" class="error"></span>
+        <br>
+        <label for="ghichu">GHI CHÚ</label><br>
+        <textarea n class="input" ame="ghichu" id="ghichu" cols="70" rows="10"></textarea>
+        <!-- <button onclick="check()">Đăng Ký</button> -->
+        <input type="button" value="Dang ky" onclick="check()">
+    </form>
+</body>
+
+<style>
+    h1 {
+        color: violet;
+    }
+    
+    form {
+        width: 500px;
+        margin: auto;
+        color: rgb(96, 4, 243);
+    }
+    
+    .input {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    #dangki {
+        width: 20%;
+        height: 40px;
+        border-radius: 20px;
+    }
+    
+    fieldset.input {
+        width: 97%;
+    }
+    
+    #quoctich {
+        height: 30px;
+    }
+    
+    button:hover {
+background-color: aqua;
+    }
+    
+    .error {
+        color: red;
+    }
+</style>
+
+<script>
+    function check() {
+        notNull()
+        function notNull() {
+            let theomsv = document.querySelector('[name="msv"]');
+            let theoname = document.querySelector('[name="name"]');
+            let theoemail = document.querySelector('[name="email"]');
+            let msvErr = document.querySelectorAll(".error");
+            let msv = theomsv.value;
+            let name = theoname.value;
+            let email = theoemail.value;
+            let msg = ""
+            if (msv.length == 0 && name.length == 0 && email.length == 0) {
+                msg = "Ko duoc de trong!!";
+            }
+
+            if (msg.length > 0) {
+                msvErr.forEach(Element => {
+                    Element.innerHTML = msg;
+                })
+            } else {
+                document.querySelectorAll(".error").innerText = "";
+            }
+        }
+        // check khoảng trắng mã sinh viên
+        // let theomsv = document.querySelector('[name="msv"]');
+        // let msvErr = document.querySelectorAll(".error");
+        // let msv = theomsv.value;
+        // let kt = "";
+        // if (msv.length == 0) {
+        //     kt = "Mời nhập mã SV !"
+        // }
+
+        // if (kt.length > 0) {
+        //     msvErr.forEach(Element => {
+        //         Element.innerHTML = kt;
+        //     })
+        // } else {
+        //     document.querySelectorAll(".error").innerText = "";
+        // }
+
+
+        // check khoảng trắng họ tên
+
+    }
+</script>

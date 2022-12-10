@@ -1,0 +1,13 @@
+<!-- xảy ra khi một phần tử được lấy tiêu điểm
+     onfocus tương tự như sự kiện onfocusin
+     onfocus ngược lại với sự kiện onblur .
+     -->
+     <input type="text" id="ten">
+     <script>
+        document.getElementById("ten").onfocus = function() {myFunction()};
+        
+        function myFunction() {
+            // Đổi màu khi 
+          document.getElementById("ten").style.backgroundColor = "violet";
+        }
+        </script>

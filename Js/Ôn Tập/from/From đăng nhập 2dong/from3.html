@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <span>Đăng nhập bằng email:</span>
+    <br>
+    <input type="text" id="email">
+    <span id="email_error" class="error"></span>
+    <br>
+    <span>Mật khẩu:</span>
+    <br>
+    <input type="password" id="pass">
+    <span id="pass_error" class="error"></span>
+    <br>
+    <button id="submit" onclick="run()">Đăng nhập</button>
+    <script>
+        function run() {
+            let email = document.getElementById('email');
+            let email_error = document.getElementById('email_error')
+            let pass = document.getElementById('pass')
+            let pass_error = document.getElementById('pass_error')
+            let checkemail = email.value.trim();
+            let checkpass = pass.value.trim();
+
+
+            let ktemail = '';
+            if (checkemail.length == 0) {
+                ktemail = '*Tên đăng nhập không được để trống!';
+                email.style.background='yellow'
+            }if(checkemail.length >0 && checkemail.includes('@')==false){
+                ktemail = '*Tên đăng nhập phải có @!';
+                email.style.background='yellow'
+            }if(checkemail.length >0 && checkemail.includes('.')==false){
+                ktemail = '*Tên đăng nhập phải có dấu chấm!';
+                email.style.background='yellow'
+            } 
+            email_error.innerText = ktemail;
+
+
+
+
+
+
+            let ktpass = '';
+            if (checkpass.length == 0) {
+                ktpass = '*Mật khẩu không được để trống!';
+                pass.style.background='yellow'
+            }if(checkpass.length >0 && checkpass.length<6 || checkpass.length >20){
+                ktpass='*Mật khẩu phải ít nhất có 6 ký tự và không quá 20 ký tự!'
+                pass.style.background='yellow'
+            } else {
+                pass_error.innerText = ktpass;
+                email_error.innerText = ktemail;
+            }
+            pass_error.innerText = ktpass;
+        }
+    </script>
+</body>
+
+</html>

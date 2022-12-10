@@ -1,0 +1,68 @@
+<!--  -->
+
+
+
+<style>
+    .error{
+        color: violet;
+    }
+</style>
+<div>
+  <label for="">email</label>
+  <input type="text" name="email">
+  <span id="email_error" class="error"></span>
+</div>
+<button onclick="validate()">Submit </button>
+<script>
+    function validate(){
+        // xđịnh thẻ
+        let theEmail = document.querySelector(`[name="email"]`);
+        // thẻ chứa lỗi
+        let emailErr = document.querySelector(`#email_error`);
+        let email = theEmail.value.trim();
+        // Kiểm tra xem có dữ liệu hay không, tạo biến rỗng, nếu ko nhập thì thồng báo
+        let msg = "";
+        if(email.length == 0){
+            msg = "Hãy nhập email";
+        }
+
+        if(msg.length > 0){
+            emailErr.innerText = msg;
+        }else{
+            emailErr.innerText = "";
+        }
+
+
+        //  Ktra có thẻ @ ở trong email hay không và chỉ có 1 @ trong giá trị
+        // thẻ @ không đc phép đứng đầu hoặc đứng cuối chuỗi
+
+        if(msg.length == 0 && (email.includes('@')==false 
+        // includes() => true/ false
+        || email.startsWith ('@') == true     
+        || email.endsWith('@') 
+        // @ ở đầu hoặc cuối cũng trả về true/flase
+        || checkDisplayNumber (email, '@', 1) == false  )){
+            msg = "Không đúng định dạng email !"
+        }
+
+        
+
+        // Kiểm tra số kí tự 
+        function checkDisplayNumber(str, char, expectedNumber){
+            let count = 0;
+            for(const character of str){
+                if(character == char)
+                count++;
+            }
+            return count == expectedNumber;
+        }
+
+
+
+        if(msg.length > 0){
+            emailErr.innerText = msg;
+        }else{
+            emailErr.innerText = " ";
+        }
+    }
+</script>

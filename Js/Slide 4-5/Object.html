@@ -1,0 +1,59 @@
+<script>
+    let str = "FPT"
+    // toupperCase
+    // mảng, hàm,..., đều là Oj
+    // console.log(str.toUpperCase());
+    
+// Oj lưu trữ theo dạng jsun
+    // tạo đối tượng mới C1 biến-Oj
+    var meo = new Object();
+    // tạo thuộc tính mới
+    meo.name = "Nguyên Văn A";
+    meo.age = 10;
+
+    meo.run = function () {
+        // Function(): hàm vô danh
+        console.log(`toi ten la: ${this.name},
+        tôi năm nay ${this.age}tuôi, tôi đag chay`)
+    }
+
+    // var hoa = new Object();
+    // hoa.name = "hong";
+    // hoa.color = "vang";
+    // hoa.date = "5"
+    // hoa.run = function(){
+    //     console.log(`ten hoa la: ${this.name}, mau hoa la: ${this.color}, so ngay ${this.date}`);
+    // }
+
+
+    // tạo Oj Cách 2: kế thừa khuôn mẫu
+    function Animal(ipname, ipage, iphaiColor) {
+        this.name = ipname;
+        this.age = ipage;
+        this.haiColor = iphaiColor;
+
+        this.talk = function () {
+            return `toi ten la: ${this.name},
+        tôi năm nay ${this.age}tuôi, tôi có mau lông ${this.haiColor}`;
+
+        }
+    }
+    let donal = new Animal("Donal Duck", 3, "yellow");
+    let rex = new Animal("Rex chú chó thám tử", 20, "đen");
+    console.log(donal, rex);
+
+
+    // Cách 3: 
+    let meow = {
+        name: "FPT",
+        age: 12,
+        bithDate: "2022-03-06",
+        talk: function () {
+            return `toi ten la: ${this.name},
+        tôi năm nay ${this.age}tuôi, sinh nhật vào ngày ${this.bithDate}`;
+        }
+    }
+    console.log(meow);
+// Đổi tên: meow.name = "ten mới" (sửa ở ctrl+ship+j)
+
+</script>

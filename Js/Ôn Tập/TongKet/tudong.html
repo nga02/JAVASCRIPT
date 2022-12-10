@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lê Cúc</title>
+    <style>
+        /* h1 {
+            text-align: center;
+            color: blue;
+        }
+
+       #khung{
+        width: 700px;
+         margin-top: -17px;
+        border: 0.5px solid red;
+       }
+
+        #album{
+           margin-top: 10px;
+             height: 400px;
+             width: 600px;
+             animation: zoom 1s ease;
+        } */
+    </style>
+</head>
+<body>
+    <body>
+        <h1>Bộ sưu tập ảnh</h1>
+        <center>
+            <div id="khung"></div>
+        </center>
+
+        <div class="slide-show">
+            <center> <img src="img/a1.jpg" id="album"></center>  
+        </div>
+        <script>
+            let i = 0;
+              function changeImages() {
+                let imgs = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg"]
+                document.getElementById('album').src = imgs[i];
+                i++;
+                if (i == 4) {
+                    i = 0;
+                }
+            }
+            setInterval(changeImages, 500);
+        </script>
+    </body>
+</body>
+</html>

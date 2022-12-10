@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bài tập ôn thi</title>
+	<style>	
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		var n=Number(prompt("Mời bạn nhập một số dương bất kì: "));
+		var mang=[];
+		for(var i=0;i<n;i++){
+			mang[i]=Number(prompt("Mời bạn nhập phần tử thứ " + (i+1)));
+		}
+		
+		var dem=0;
+		var tong=0;
+		for(var i=0;i<mang.length;i++){
+			document.write("Phần tử thứ "+(i+1) +" là: " + mang[i] + "<br>");
+			dem++;
+			tong+=mang[i];
+		}
+		document.write("Trung bình cộng là: "+ tong/dem);
+	</script>
+</body>
+</html>

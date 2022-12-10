@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>Tên khách hàng:</span>
+    <span><input type="text" id="name"></span>
+    <span id="name_error"></span>
+    <br>
+    <span>Số điện thoại:</span>
+    <span><input type="text" id="phone"></span>
+    <span id="phone_error"></span>
+    <br>
+    <table border="1" style="width: 800px; height: 100px;">
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Bánh ngọt phô mai</th>
+            <th><input type="text" value="1000" id="money_1" disabled></th>
+            <th><input type="number" id="number_1" value='0' step="1" min="0"></th>
+            <th><input type="text" id="sum_1" disabled></th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Sukem phomai</th>
+            <th><input type="text" id="money_2" value="500" disabled></th>
+            <th><input type="number" id="number_2" value="0" step="1" min="0"></th>
+            <th><input type="text" id="sum_2" disabled></th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Trà sữa</th>
+            <th><input type="text" id="money_3" value="2000" disabled></th>
+            <th><input type="number" id="number_3" value="0" step="1" min="0"></th>
+            <th><input type="text" id="sum_3" disabled></th>
+        </tr>
+        <tr>
+            <th colspan="4">
+                Tổng tiền
+            </th>
+            <th> <input type="text" id="sum" disabled></th>
+        </tr>
+    </table>
+    <button onclick="run()">Đặt mua</button>
+    <script>
+        function run() {
+                var name = document.getElementById('name')
+                var name_error = document.getElementById('name_error')
+                var checkname = name.value.trim();
+
+                var ktname = ''
+                if (checkname.length == 0) {
+                    ktname = 'Khong de trong!'
+                }
+                name_error.innerText = ktname
+
+
+
+            var phone = document.getElementById('phone')
+            var phone_error = document.getElementById('phone_error')
+            var checkphone = phone.value.trim();
+
+            var ktphone = ''
+            if (checkphone.length == 0) {
+                ktphone = 'Khong de trong!'
+            }
+            else if (isNaN(checkphone) == true) {
+                ktphone = 'Nhap so'
+            }
+            else if (checkphone.length > 10 || checkphone.length < 10) {
+                ktphone = 'Phone chi duoc nhap 10 so'
+            }
+            phone_error.innerText = ktphone
+
+            var number_2 = document.getElementById('number_2').value;
+            var sum_2 = document.getElementById('sum_2');
+            var money_2 = document.getElementById('money_2').value;
+            sum_2.value = parseInt(money_2) * parseInt(number_2);
+
+            var number_1 = document.getElementById('number_1').value;
+            var sum_1 = document.getElementById('sum_1');
+            var money_1 = document.getElementById('money_1').value;
+            sum_1.value = parseInt(money_1) * parseInt(number_1);
+
+
+            var number_3 = document.getElementById('number_3').value;
+            var sum_3 = document.getElementById('sum_3');
+            var money_3 = document.getElementById('money_3').value;
+            sum_3.value = parseInt(money_3) * parseInt(number_3);
+
+
+
+            var sum = document.getElementById('sum');
+            sum.value = parseInt(sum_1.value) + parseInt(sum_2.value) + parseInt(sum_3.value)
+        }
+    </script>
+</body>
+
+</html>

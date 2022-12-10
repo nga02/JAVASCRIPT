@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th {
+        text-align: left;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Hóa đơn</h1>
+        </center>
+        <form action="" onsubmit="kiemTra()">
+            <table>
+                <tr>
+                    <th>Khách hàng</th>
+                    <td><input type="text" id="khachHang"></td>
+                    <td><span style="color: red;" id="errorKh"></span></td>
+                </tr>
+                <tr>
+                    <th>Loại hàng</th>
+                    <td>
+                        <select name="" id="select" onchange="thaydoi()">
+                            <option value="0">Chọn</option>
+                            <option value="1">Loại 1</option>
+                            <option value="2">Loại 2</option>
+                            <option value="3">Loại 3</option>
+                        </select>
+                    </td>
+                    <td><span style="color: red;"></span></td>
+                </tr>
+                <tr>
+                    <th>Đơn giá</th>
+                    <td>
+                        <input disabled id="donGia" type="text" onkeyup="tinhTong()">
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <th>Số Lượng</th>
+                    <td>
+                        <input type="text" onkeyup="tinhTong()" id="amount">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Thành tiền</th>
+                    <td><input type="text" id="sum"></td>
+                    <td><span style="color: red;"></span></td>
+                </tr>
+                <tr>
+                    <th>Nơi nhận hàng</th>
+                    <td>
+                        <input name="noinhan" type="radio" onchange="noiThanh()" id="noi" value="1">Nội thành
+                        <input name="noinhan" type="radio" onchange="ngoaiThanh()" id="ngoai" value="2">Ngoại thành
+                    </td>
+                </tr>
+                <tr>
+                    <th>Phí vận chuyển</th>
+                    <td><input type="text" id="vc"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td align="center"><button>Đặt mua</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+
+        function kiemTra() {
+            var khachHang = document.getElementById('khachHang').value;
+            var errorKh = document.getElementById('errorKh');
+            var regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+            if (khachHang == '') {
+                errorKh.innerHTML = 'Không được để trống ';
+} else if (!regexName.test(khachHang)) {
+                errorKh.innerHTML = 'Sai định dạng';
+            }
+            else {
+                errorKh.innerHTML = '';
+            }
+
+            event.preventDefault();
+        }
+        function thaydoi() {
+            let select = document.getElementById('select');
+            let donGia = document.getElementById('donGia');
+            if (select.value == 1) {
+                donGia.value = '500000000'
+
+            }
+            else if (select.value == 2) {
+                donGia.value = '20000000'
+
+            }
+            else if (select.value == 3) {
+                donGia.value = '100000000'
+
+            }
+
+        }
+        function tinhTong() {
+            var sum = document.getElementById('sum');
+            var amount = document.getElementById('amount');
+            var donGia = document.getElementById('donGia');
+            sum.value = donGia.value * amount.value;
+
+        }
+        function noiThanh() {
+            let vc = document.getElementById('vc');
+            let noi = document.getElementById('noi');
+
+            if (noi.value == 1) {
+                vc.value = '100'
+            }
+        }
+        function ngoaiThanh() {
+            let vc = document.getElementById('vc');
+            let ngoai = document.getElementById('ngoai');
+            if (ngoai.value == 2) {
+                vc.value = '500'
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

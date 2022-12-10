@@ -1,0 +1,9 @@
+<!-- Khi nhập -->
+<input type="text" id="Hien thi" oninput="chay()" >
+<p id="demo"></p>
+<script>
+function chay() {
+  var x = document.getElementById("Hien thi").value;
+  document.getElementById("demo").innerHTML = "Số kí tự nhập: " + x;
+}
+</script>

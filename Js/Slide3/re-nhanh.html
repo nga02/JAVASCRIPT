@@ -1,0 +1,62 @@
+<script>
+    // if-else
+    /* Nếu biểu thức trả về true -> các câu lệnh trong dauas {} sẽ đc chạy*/
+    // if(biểu thức ss){
+    // }
+
+    let arr = [3, 4, 5, 2, 7, 8];
+    let arr2 = arr.filter(function (value) {
+        if (value % 3 == 0) {
+            return true;
+        } else if (value % 5 == 0) {
+            return true;
+        }
+        return false;
+    });
+
+
+    /*  if(đk){
+    } else if(đk 2){
+    } else if(đk 3){
+    } else{
+    }  */
+
+
+
+    /*  if(đk){
+        block code 1
+   } else {
+       block code 2
+   }  */
+
+
+    // let num = prompt("Nhập số")
+    // let ketqua = parseInt(num) % 2 == 0 ? "số chẳn" : "số lẻ";
+    // if (parseInt(num) % 2 == 0) {
+    //     ketqua = "số chẳn"
+    // } else {
+    //     ketqua = "số lẻ"
+    // }
+    // alert(ketqua)
+
+
+    let data = prompt("Nhập một chuỗi ");
+    //nhận giá trị từ chuỗi và lọc các kí tự là số
+    // Gán vào 1 mảng, sau đó console.log()mảng đó ra
+    // b1. Chuyển chuỗi thành mảng
+    console.log(data);
+    let arr_goc = data.split('');
+    // b2. Tạo mảng rỗng chứa số
+    let arr_so = [];
+    // b3. Chạy qua từng phần tử trong mảng
+    arr_goc.forEach(function (item) {
+        // debugger;
+        // b3.1: Ktra xem hàm isNaN nó có trả về false hay ko
+        // Nếu trả về false thì add phần tử đó vào mảng chứa số
+        if (item !== " " && isNaN(item) == false) {
+            arr_so.push(parseInt(item));
+        }
+    });
+    console.log(arr_so)
+
+</script>

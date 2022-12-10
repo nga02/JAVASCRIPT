@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bài 2</title>
+	<style>
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+		.container{
+			width: 400px;
+			padding: 40px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-left: 30%;
+		}
+		h2{
+			text-align: center;
+		}
+		form{
+			margin-left: 50px;
+		}
+		label{
+			display: block;
+			font-weight: bold;
+			margin: 10px 0;
+		}
+		input{
+			padding: 5px 8px;
+			border-radius: 5px; 
+			border: 1px solid #ccc;
+			width: 300px;
+		}
+		button{
+			margin: 15px 0;
+			padding: 8px 15px;
+			border-radius: 5px; 
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Đăng kí thành viên</h2>
+		<form action="" onsubmit="return KiemTra()">
+			<label for="user">User:</label>
+			<input type="text" name="user" id="user"> <br>
+
+			<label for="email">Email:</label>
+			<input type="text" name="email" id="email"> <br>
+			<label for="pass">Password:</label>
+			<input type="password" name="pass" id="pass"> <br>
+			<label for="year">Số năm làm việc:</label>
+			<input type="number" name="year" id="year"> <br>
+
+			<button>Đăng ký</button>
+		</form>
+	</div>
+	<script>
+		function KiemTra(){
+			var user=document.getElementById("user");
+			var email=document.getElementById("email");
+			var pass=document.getElementById("pass");
+			var year=document.getElementById("year");
+			console.log(year.value);
+
+			if(user.value.length<6){
+				alert("User phải lớn hơn 6 ký tự!");
+				return false;
+			}
+
+			if(email.value.indexOf("@")==-1 && user.value.indexOf(".")==-1){
+				alert("Không đúng định dạng email!");
+				return false;
+			}
+
+			if(pass.value.length==0){
+				alert("Bạn phải nhập mật khẩu!");
+				return false;
+			}
+
+			if(year.value<=0 || year.value>100 || year.value==null){
+				alert("Số năm làm việc chưa hợp lệ");
+				return false;
+			}
+
+			alert("Bạn đăng kí thành công!");
+			return true;
+		}
+	</script>
+</body>
+</html>

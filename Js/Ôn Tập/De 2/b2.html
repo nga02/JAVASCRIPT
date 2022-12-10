@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Đăng ký thành viên</h1>
+    <div>
+        <label for="">Họ tên</label>
+        <input type="text" id="name">
+        <span class="err" id="name_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" id="email">
+        <span class="err" id="email_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Số điện thoại</label>
+        <input type="text" id="sdt">
+        <span class="err" id="sdt_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">User</label>
+        <input type="text" id="nguoidung">
+        <span class="err" id="nguoidung_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Pass</label>
+        <input type="password" id="mk" >
+        <span class="err" id="mk_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Repass</label>
+        <input type="password" id="remk">
+        <span class="err" id="remk_err" style="color: red;"></span>
+    </div>
+    <div>
+        <label for="">Bạn biết chúng tôi</label>
+        <input type="radio" name="chon" id="bangt" value="bangt">Bạn giới thiệu
+        <input type="radio" name="chon" id="fb" value="fb">Qua fb
+        <span class="err" id="chon_err" style="color: red;"></span>
+    </div>
+    <div>
+        <button id="button" onclick="validate()">Đăng ký</button>
+    </div>
+</body>
+
+<script>
+    function validate(){
+        // check họ tên
+        let name = document.getElementById('name').value;
+        let name_err = document.getElementById('name_err')
+        let regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+        if(name==""||name==null){
+            name_err.innerHTML="* Bạn chưa nhập họ tên!!!"
+        }else if(!regexName.test(name)){
+            name_err.innerHTML = "* Tên không đúng định dạng!!!"
+        }else{
+            name_err.innerHTML=""
+        }
+
+        // check email
+        let email = document.getElementById('email').value;
+        let email_err = document.getElementById('email_err');
+        let regexEmail = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+        if(email==""||email==null){
+            email_err.innerHTML = "* Bạn chưa nhập email!!!"
+        }else if(!regexEmail.test(email)){
+            email_err.innerHTML= "* Email của bạn chưa đúng định dạng!!!"
+        }else{
+            email_err.innerHTML=""
+        }
+
+
+
+        // check số điện thoại
+        let sdt = document.getElementById('sdt').value;
+        let sdt_err = document.getElementById('sdt_err');
+        let regexSdt = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if(sdt==""||sdt==null){
+            sdt_err.innerHTML = "* Bạn chưa nhập số điện thoại!!"
+        }else if(!regexSdt.test(sdt)){
+            sdt_err.innerHTML = "* Số điện thoại của bạn không đúng định dạng!!!"
+        }else{
+            sdt_err.innerHTML = ""
+        }
+
+
+        // check User
+        let nguoidung = document.getElementById('nguoidung');
+        let nguoidung_err = document.getElementById('nguoidung_err');
+        let checkUser = nguoidung.value.trim();
+        let ktrUser = "";
+        if(checkUser.length==0){
+            ktrUser = "* User không được để trống!!!"
+        }else if(checkUser.length > 0 && checkUser.length < 8){
+            ktrUser = "* User phải ít nhất 8 kí tự !!! "
+        }
+        nguoidung_err.innerHTML = ktrUser;
+
+
+
+      // Check Pass
+      let mk = document.getElementById('mk');
+      let mk_err = document.getElementById('mk_err');
+      if(mk.value == ""){
+        mk_err.innerHTML = " * Bạn chưa nhập mật khẩu!!!"
+      }else{
+          mk_err.innerHTML = ""
+      }
+
+
+
+      // Check Repass
+    //   let remk = document.getElementById('remk').value;
+    //   let remk_err = document.getElementById('remk_err');
+    //   if(remk == '' || remk == null){
+    //       remk_err.innerHTML='Bạn chưa xác nhận nhập mật khẩu'
+    //   }else if(remk != mk){
+    //       alert('Mật khẩu ko trùng khớp')
+    //   }else{
+    //       remk_err.innerHTML=''
+    //   }
+
+    var conpass=document.getElementById('remk').value
+            var errorConpass=document.getElementById('remk_err')
+            if(conpass=='' || conpass==null){
+                errorConpass.innerHTML='Vui lòng xác nhận mật khẩu'
+            }else if(conpass != mk){
+                alert("Xác nhận mật khẩu không trùng khớp!")
+            }else{
+                errorConpass.innerHTML=''
+            }
+
+
+
+          
+      // check biết qua đâu ?
+        let bangt = document.getElementById('bangt');
+        let fb = document.getElementById('fb');
+        if(bangt.checked == false & fb.checked == false){
+            chon_err.innerHTML = " * Bạn chưa chọn hình thức học !!!"
+        }else{
+            chon_err.innerHTML = "";
+        }
+
+        event.preventDefault();
+    }
+</script>
+</html>

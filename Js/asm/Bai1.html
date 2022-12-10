@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BAI1: ASM</title>
+</head>
+<style>
+    body {
+        background-color: rgb(250, 242, 242);
+        font-family: arial;
+    }
+
+    .Anh {
+        margin: 0 auto;
+        height: 600px;
+        width: 600px;
+        border: 2px solid rgb(248, 245, 245);
+        position: relative;
+        /*chon gốc*/
+        background-color: white;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: center;
+        background-image: url(img/một.jpg);
+    
+    }
+
+
+
+    div.btn {
+        width: 80px;
+        height: 80px;
+        /*chiều cao*/
+        border: 1px solid #ccc;
+        /*viền*/
+        border-radius: 49%;
+        text-align: center;
+        /*căn chỉnh chữ*/
+        font-size: 30px;
+        /*cỡ chữ*/
+        line-height: 80px;
+        /*chieu cao cua dong*/
+        text-align: center;
+        background-color: white;
+    }
+
+    div.btn:hover {
+        background-color: violet;
+    }
+
+
+
+    .Prev {
+        position: absolute;
+        /*xếp vị trí*/
+        left: 10px;
+        /*cách trái phải*/
+        top: 50%;
+        /*căn khoảng lề trên*/
+
+
+    }
+
+    .Next {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+    }
+
+    .Anh>h2{
+        /* position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0; */
+        text-align: center;
+    }
+
+</style>
+
+<body>
+    <h1 align="center">Ảnh làng quê Việt Nam</h1>
+    <div class="Anh">
+        <img src="img/hai.jpg" alt="">
+        <img src="img/một.jpg" alt="">
+        <div class="btn Prev">Prev</div>
+        <div class="btn Next">Next</div>
+        <h2 align="center" id="dem">1/7</h2>
+    </div>
+
+
+
+</body>
+
+</html>

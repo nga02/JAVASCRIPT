@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bài 1 - Hiệu ứng chuyển slide ảnh</title>
+	<style>
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+		.container{
+			width: 500px;
+			margin-left: 32%;
+			margin-top: 3%;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 20px;
+			text-align: center;
+		}
+		#img{
+			margin-bottom: 50px;
+			
+		}
+		#btn button{
+			background-color: chocolate;
+			padding: 4px 15px;
+		    margin: 0 15px;
+		    font-weight: bold;
+		  
+		    border-radius: 5px;
+		    transition: .4s;
+		    border: none;
+		    outline: none;
+		}
+		#btn button:hover{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="img">
+			<img src="images/anh0.png" alt="" width="300" id="anh">
+		</div>
+		<div id="btn">
+			<button id="prev" onclick="Prev()">Prev</button>
+			<button id="start" onclick="Start()">Start</button>
+			<button id="stop" onclick="Stop()">Stop</button>
+			<button id="next" onclick="Next()">Next</button>
+		</div>
+	</div>
+	
+	<script>
+		var images=[];
+		for(var i=0;i<5;i++){
+			images[i]=new Image();
+			images[i].src="images/anh" +i+".png";
+		}
+
+		var index=0;
+		var anh=document.getElementById("anh");
+		function Next(){
+			index++;
+			if(index>images.length-1){
+				index=0;
+			}
+			anh.src=images[index].src;
+		}
+
+		function Prev(){
+			index--;
+			if(index<0){
+				index=images.length-1;
+			}
+			anh.src=images[index].src;
+		}
+
+		function Start(){
+			index++;
+			if(index>images.length-1){
+				index=0;
+			}
+			anh.src=images[index].src;
+			t=setTimeout("Start()", 1000);
+		}
+
+		function Stop(){
+			clearTimeout(t);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="hoadon">
+        <h1>HOA DON</h1>
+    </div>
+    <div class="khachhang">
+        <label for="">Khach hang</label>
+        <input type="text" class="khach">
+        <span class="khach_err" style="color: red;"></span>
+    </div>
+
+    <div class="loaihang">
+        <label for="">Loai hang</label>
+        <select name="" id="loaihang">
+            <option value=""></option>
+            <option value="loai1">Loai1</option>
+            <option value="loai2">Loai2</option>
+            <option value="loai3">Loai3</option>
+        </select>
+        <span class="loai_hang" style="color: red;"></span>
+    </div>
+
+    <div class="dongia">
+        <label for="">Don Gia</label> <input type="text" class="abc">
+        <span class="don_gia" style="color: red;"></span>
+    </div>
+
+    <div class="soluong">
+        <label for="">So luong</label> <input type="text" class="abc-1">
+        <span class="soluong_err" style="color: red;"></span>
+    </div>
+
+    <div class="thanhtien">
+        <label for="">Thanh Tien</label> <input type="text" class="abc-2">
+        <span class="thanhthien_err" style="color: red;"></span>
+    </div>
+
+    <div class="noinhaphang">
+        <label for="">Noi nhap hang</label> 
+        <input class="noi" type="radio"> <label for="">Noi thanh</label>
+        <input class="ngoai" type="radio"> <label for="">Ngoai Thanh</label>
+        <span class="nhanhang_err" style="color: red;"></span>
+    </div>
+
+    <div class="phi">
+        <label for="">Phi van chuyen</label> <input type="text" class="abc-3">
+        <span class="phi_err" style="color: red;"></span>
+    </div>
+
+    <button class="datmua" onclick="run()">DAT MUA</button>
+</body>
+
+<script>
+    function run() {
+        khach();
+        loaihang();
+        dongia();
+        soluong();
+        tien();
+        nhaphang();
+        phivanchuyen();
+    }
+
+    function khach() {
+        let khach = document.querySelector(".khach").value;
+        
+        if(khach.length == 0) {
+            document.querySelector(".khach_err").innerHTML = "Hay nhap khach hang";
+        } else {
+            document.querySelector(".khach_err").innerHTML = "";
+        }
+    }
+    function loaihang() {
+        let loai = document.querySelector("#loaihang");
+        
+        if(loai.value == "") {
+            document.querySelector(".loai_hang").innerHTML = "Hay chon loai hang";
+        } else {
+            document.querySelector(".loai_hang").innerHTML = "";
+        }
+    }
+    function dongia() {
+        let gia = document.querySelector(".abc").value;
+        console.log(gia);
+        if(gia.length == 0) {
+            document.querySelector(".don_gia").innerHTML = "Hay nhap gia";
+        } else {
+            document.querySelector(".don_gia").innerHTML = "";
+        }
+    }
+    function soluong() {
+        let soluong = document.querySelector(".abc-1").value;
+        if(soluong.length == 0) {
+            document.querySelector(".soluong_err").innerHTML = "Hay nhap so luong";
+        } else {
+            document.querySelector(".soluong_err").innerHTML = "";
+        }
+
+    }
+    function tien() {
+        let tien = document.querySelector(".abc-2").value;
+
+        if(tien.length == 0) {
+            document.querySelector(".thanhthien_err").innerHTML = "Hay nhap gia tien";
+        } else {
+            document.querySelector(".thanhthien_err").innerHTML = "";
+        }
+    }
+    function nhaphang() {
+        let noi = document.querySelector(".noi");
+        let ngoai = document.querySelector(".ngoai");
+
+        if(noi.checked == true || ngoai.checked == true) {
+            document.querySelector(".nhanhang_err").innerHTML = "";
+        } else {
+            document.querySelector(".nhanhang_err").innerHTML = "hay chon noi nhan";
+        }
+    }
+    function phivanchuyen() {
+        let phichuyen = document.querySelector(".abc-3").value;
+
+        if(phichuyen.length == 0) {
+            document.querySelector(".phi_err").innerHTML = "hay nhap phi";
+        } else {
+            document.querySelector(".phi_err").innerHTML = "";
+        }
+    }
+
+</script>
+</html>

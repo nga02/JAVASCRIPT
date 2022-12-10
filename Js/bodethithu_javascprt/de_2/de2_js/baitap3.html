@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bài tập kiểm tra form</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+		.container{
+			width: 300px;
+			border: 1px solid #ccc;
+			margin-left: 35%;
+		}
+		h3{
+			padding: 10px 0;
+			text-align: center;
+			background: blue;
+			color: #fff;
+		}
+		form{
+			padding: 10px;
+		}
+		label{
+			display: block;
+			margin: 10px 0;
+		}
+		button{
+			padding: 8px 15px;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>Đăng nhập</h3>
+
+		<form action="" onsubmit="return KiemTra()">
+			
+			<label for="tendangnhap">Tên đăng nhập: </label>
+			<input type="text" name="tendangnhap" id="tendangnhap"> <br>
+
+			<label for="matkhau">Mật khẩu: </label>
+			<input type="password" name="matkhau" id="matkhau"> <br>
+
+			<label for="nhaplaimatkhau">Nhập lại mật khẩu: </label>
+			<input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau"> <br>
+
+			<button>Đăng nhập</button>
+		</form>
+	</div>
+	<script>
+		function KiemTra(){
+			var tendangnhap=document.getElementById("tendangnhap");
+			var matkhau=document.getElementById("matkhau");
+			var nhaplaimatkhau=document.getElementById("nhaplaimatkhau");
+
+			if(tendangnhap.value.length==0){
+				alert("Tên đăng nhập không được để trống!");
+				return false;
+			}
+
+			if(matkhau.value.length<6){
+				alert("Mật khẩu phải lớn hơn 6 ký tự");
+				return false;
+			}
+
+			if(matkhau.value !==nhaplaimatkhau.value){
+				alert("Mật khẩu nhập lại không khớp!");
+				return false;
+			}
+			alert("Đăng nhập thành công!");
+			return true;
+		}
+	</script>
+</body>
+</html>

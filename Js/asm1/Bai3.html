@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <link rel="stylesheet" href="ass.css">
+    
+</head>
+<body>
+    <div class="contaner">    
+        <div class="banhang">
+            <form class="form-group">
+                <h2>BÁN HÀNG</h2>
+                <label for="" class="form-lable">Mức giá:</label>
+                <select name="" id="muc-gia" onchange="myFunction()">
+                    <option value="">Chọn mức giá</option>
+                    <option value="1">0- 100</option>
+                    <option value="2">100-500</option>
+                    <option value="3">500- 1000</option>
+                    <option value="4">1000-2000</option>
+                   
+                </select>
+            </form>
+            <hr>
+            <table  class="table" onchange="myTinhTien()">
+                <thead id="thead">
+                    <tr class="column">
+                        <th><input type="checkbox" id="checkAll"></th>
+                        <th colspan="2">Hàng hóa</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+
+                    </tr>
+                </thead>
+ 
+                <tbody id="tbody">
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id="check"></td>
+                        <td>iphone 9</td>
+                        <td value="700">700</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                        <td value="" class="thanhtien"></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id="check"></td>
+                        <td>Sámung</td>
+                        <td value="400">400</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                        <td value="" class="thanhtien"></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id="check"></td>
+                        <td>Nokia</td>
+                        <td value="100">100</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                            <td value="" class="thanhtien"></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id="check"></td>
+                        <td>Sony Xperia</td>
+                        <td value="450">450</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                        <td value="" class="thanhtien"></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id="check"></td>
+                        <td>Motorola</td>
+                        <td value="180">180</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                        <td value="" class="thanhtien"></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td>Oppo</td>
+                        <td value="600">600</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                        <td value="" class="thanhtien"></td>
+                    </tr>
+
+
+                    <tr class="row">
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td>bPhone</td>
+                        <td value="90">90</td>
+                        <td><input type="number" value="0" disabled placeholder="0"></td>
+                            <td value="" class="thanhtien"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr >
+                        <th colspan="4">Tổng tiền:</th>
+                        <td class="tong"><b>0</b></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+<!-- Nếu mà viết js sang một trang khác thì dùng link ở đây -->
+
+</body>
+</html>
+
+<script>
+
+
+//  check all tất cả trong phần check.
+var checkAll = document.getElementById('checkAll');
+var checkbox = document.getElementById('check');
+checkAll.onchange = function(){
+    checkbox.forEach(checkBox => {
+        if (checkAll.checked == true){
+            checkBox.checked = true;
+        }else{
+            checkBox.checked = false;
+        }
+    });
+}
+    var ban_hang = document.getElementsByClassName("banhang")[0];
+var tr = ban_hang.querySelectorAll('tr');
+var thanh_tien = document.querySelectorAll(".thanhtien");
+var tong_tien = document.querySelector(".tong");
+var giaTien = document.querySelector(".giaTien");
+var checkbox = document.querySelectorAll('[type=checkbox]');
+
+function hien(min, max) {
+    var sum = 0;
+    for (var i = 1; i < tr.length - 1; i++) {
+        var kt_checkbox = tr[i].querySelectorAll('td')[0].querySelector('input');
+        kt_checkbox.checked = false;
+        tr[i].querySelectorAll("td")[3].querySelector('input').value = 0;
+        tr[i].querySelectorAll('td')[3].querySelector('input').disabled = true;
+        tr[i].querySelectorAll('td')[4].innerText = 0;
+        var value_dongia = tr[i].querySelectorAll('td')[2].getAttribute('value');
+        if (value_dongia > min && value_dongia < max) {
+            tr[i].style.display = "";
+        }
+        else {
+            tr[i].style.display = "none";
+        }
+        sum = tong(i, sum);
+    }
+    tong_tien.innerText = sum;
+    giaTien.innerText = sum;
+}
+var muc_gia = document.getElementById("muc-gia");
+
+
+function myFunction() {
+    document.querySelector(".form-massage").style.display = "none";
+    // console.log(muc_gia.value)
+    // switch (muc_gia.value) {
+    //     case '1': hien(0, 100); break;
+    //     case '2': hien(100, 500); break;
+    //     case '3': hien(500, 1000); break;
+    //     case '4': hien(1000, 2000); break;
+    // }
+}
+
+function myTinhTien() {
+    var sum = 0;
+    for (var i = 1; i < tr.length - 1; i++) {
+        var kt_checkbox = tr[i].querySelectorAll('td')[0].querySelector('input');
+        if (kt_checkbox.checked) {
+            var kt_soLuong = tr[i].querySelectorAll('td')[3].querySelector('input').value;
+
+            if (kt_soLuong == 0) {
+                tr[i].querySelectorAll("td")[3].querySelector('input').value = 1;
+                tr[i].querySelectorAll('td')[3].querySelector('input').disabled = false;
+
+            }
+        }
+        else {
+            tr[i].querySelectorAll("td")[3].querySelector('input').value = 0;
+            tr[i].querySelectorAll('td')[3].querySelector('input').disabled = true;
+        }
+        var tien = tinh(i);
+        tr[i].querySelectorAll('td')[4].innerHTML = tien;
+        sum = tong(i, sum);
+
+    }
+    tong_tien.innerText = sum;
+    giaTien.innerText = `${sum} USD`;
+
+}
+
+function tinh(i) {
+    var dongia = tr[i].querySelectorAll('td')[2].getAttribute('value')
+    var soluong = tr[i].querySelectorAll('td')[3].querySelector('input').value;
+    var tien = soluong * dongia;
+    return tien;
+}
+
+function tong(i, sum) {
+    var x = Number(tr[i].querySelectorAll('td')[4].outerText);
+    if (x > 0) {
+        sum +=x;
+    }
+    return sum;
+}
+</script>

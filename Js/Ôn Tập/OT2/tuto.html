@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="anh" src="./image/as1.png" alt="">
+    <button onclick="pre()">previous</button>
+    <button onclick="play()">play</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="next()">next</button>
+    <p id="info">1/3</p>
+</body>
+
+<script>
+    let index = 1;
+    function pre(){
+        index = index - 1;
+        if(index == 0) index = 3;
+        document.getElementById("info").innerText = index + "/" + 3;
+        document.getElementById("anh").src = "./image/as1"+index+".png";
+    }
+
+    function next(){
+        index = index + 1;
+        if(index > 3)index = 1;
+        document.getElementById("anh").src = "./image/as1"+index+".png";
+    }
+
+    let t;
+    function play(){
+        setInterval(next, 2000);
+    }
+
+    function stop(){
+        clearInterval(t);
+    }
+</script>
+</html>

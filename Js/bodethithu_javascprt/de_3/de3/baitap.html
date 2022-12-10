@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bài tập ôn thi</title>
+	<style>
+		body{
+			font-family: "Roboto",sans-serif;
+		}
+		.container{
+			margin-left: 35%;
+		}
+		label{
+			font-weight: bold;
+			display: block;
+		}
+		input{
+			margin: 8px 0px;
+			padding: 8px 5px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			outline: none;
+			width: 300px;
+		}
+		button{
+			padding: 8px 15px;
+			border-radius: 5px;
+			outline: none;
+			border: 1px solid #ccc;
+			margin: 8px 0;
+		}
+
+		table{
+			margin-top: 15px;
+		}
+		table,tr,th,td{
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+		}
+		th,td {
+			padding: 8px 25px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="" onsubmit="return KiemTra()">
+			<h2>Sinh viên trốn học</h2>
+			<label for="hoten">Họ tên:</label>
+			<input type="text" name="hoten" id="hoten"> <br>
+
+			<label for="monhoc">Môn đang học:</label>
+			<input type="text" name="honhoc" id="monhoc"> <br>
+
+			<label for="buoivang">Số buổi vắng:</label>
+			<input type="text" name="buoivang" id="buoivang"> <br>
+			<button>Thêm</button>
+		</form>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Tên</th>
+					<th>Môn</th>
+					<th>Số buổi nghỉ</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="kta">
+			<button onclick="Check()">check</button>
+			<div id="thongbao"></div>
+		</div>
+	</div>
+	<script>
+		var sbm=0;
+		function KiemTra(){
+			var hoten=document.getElementById("hoten").value;
+			var monhoc=document.getElementById("monhoc").value;
+			var buoivang=document.getElementById("buoivang").value;
+
+			//kiểm tra họ tên
+			if(hoten.length<8){
+				alert("Họ tên phải lớn hơn 8 ký tự!");
+				return false;
+			}else{
+				hoten=document.getElementById("hoten").value;
+			}
+
+			//kiểm tra môn học
+			if(monhoc.indexOf("fpoly")==-1){
+				alert("Môn học phải có ký tự fpoly");
+				return false;
+			}else{
+				monhoc=document.getElementById("monhoc").value;
+			}
+
+
+			//kiểm tra số buổi vắng
+			if(buoivang.length !==2 && buoivang.charAt(0) !=="0"){
+				alert("Buổi vắng phải là 2 chữ số và bắt đầu bằng số 0!");
+				return false;
+			}else{
+				buoivang=document.getElementById("buoivang").value;
+			}
+
+			var the_tr=document.querySelectorAll("table tbody tr");
+			for(var i=0;i<the_tr.length;i++){
+				the_tr[sbm].children[0].innerHTML=hoten;
+				the_tr[sbm].children[1].innerHTML=monhoc;
+				the_tr[sbm].children[2].innerHTML=buoivang;
+
+			}
+			sbm++;
+
+			return false;
+		}
+
+		function Check(){
+			var thongbao=document.getElementById("thongbao");
+			console.log(thongbao);
+			var the_tr=document.querySelectorAll("table tbody tr");
+
+			var kt=0;
+			for(var i=0;i<the_tr.length;i++){
+				the_td=the_tr[i].children[2].innerText;
+				if(Number(the_td)>4){
+					kt++;
+					the_tr[i].style.background="yellow";
+				}
+			}
+			console.log(kt);
+			thongbao.innerText="Số sinh viên có buổi nghỉ lớn hơn 4 là: " + kt;
+
+		}
+	</script>
+</body>
+</html>
